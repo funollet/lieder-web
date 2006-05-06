@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Django settings for lieder project.
 
+LIEDER_ROOT = '/home/jordif/code/lieder/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +13,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3' # 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
-DATABASE_NAME = '/home/jordif/devel/djangos/lieder/lieder.sqlt'
+DATABASE_NAME = LIEDER_ROOT + 'lieder.sqlt'
  # Or path to database file if using sqlite3.
 DATABASE_USER = ''             # Not used with sqlite3.
 DATABASE_PASSWORD = ''         # Not used with sqlite3.
@@ -32,11 +33,11 @@ SITE_ID = 1
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '/home/jordif/devel/djangos/lieder/media/'
+MEDIA_ROOT = LIEDER_ROOT + 'media-lieder/'
 
 # URL that handles the media served from MEDIA_ROOT.
 # Example: "http://media.lawrence.com"
-MEDIA_URL = '/lieder-media/'
+MEDIA_URL = '/media-lieder/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -63,7 +64,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'lieder.settings.urls'
 
 TEMPLATE_DIRS = (
-    '/home/jordif/devel/djangos/lieder/templates/lieder-theme/',
+    LIEDER_ROOT + 'templates/lieder-theme/',
 )
 
 INSTALLED_APPS = (

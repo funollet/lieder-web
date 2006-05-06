@@ -1,11 +1,9 @@
 from django.conf.urls.defaults import *
+from django.conf.settings import DEBUG, LIEDER_ROOT
 
 urlpatterns = patterns('',
     (r'^admin/', include('django.contrib.admin.urls.admin')),
     (r'^i18n/', include('django.conf.urls.i18n')),
-    (r'^lieder-media/(?P<path>.*)$', 'django.views.static.serve',
-      {'document_root': '/home/jordif/devel/djangos/lieder/media/',
-       'show_indexes': True, }),
     #
     (r'^articles/', include('lieder.apps.articles.urls')),
     (r'^concerts/', include('lieder.apps.concerts.urls')),
@@ -14,7 +12,12 @@ urlpatterns = patterns('',
     (r'^programmes/', include('lieder.apps.programmes.urls')),
     (r'^singers/', include('lieder.apps.singers.urls')),
     #
-    #(r'^texts/', include('lieder.text_store.urls')),
-    #(r'^/', include('lieder.text_store.urls')),
-    (r'^', include('lieder.apps.links.urls')),
+    (r'^', include('lieder.apps.articles.urls')),
+)
+
+if DEBUG:
+    urlpatterns += patterns('',
+    (r'^media-lieder/(?P<path>.*)$', 'django.views.static.serve',
+      {'document_root': LIEDER_ROOT + 'media-lieder/',
+       'show_indexes': True, }),
 )
