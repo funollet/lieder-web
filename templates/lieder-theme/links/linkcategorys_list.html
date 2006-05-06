@@ -1,0 +1,23 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{% trans "links" %}</h1>
+
+<ul>
+{% for categ in object_list %}
+	<li>
+	<a href="{{ categ.slug }}">{{ categ.name }}</a>
+        <br>
+	description: {{ categ.description }}
+        {% if categ.description_markdown %}
+	<br>
+	description: {{ categ.description }}
+	{% endif %}
+	</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

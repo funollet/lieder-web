@@ -1,0 +1,30 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+
+<div id="articles">      
+<h1>{% trans "articles" %}</h1>
+
+<table>
+{% for prog in object_list %}
+      <tr>
+	<td>
+	      {% if prog.image %}
+	  <a href="{{ prog.slug }}">
+	    <img src={{ prog.get_image_url }}/>
+	  </a>
+	      {% endif %}
+	</td>
+	<td>
+	  <h2><a href="{{ prog.slug }}">{{ prog.name }}</a></h2>
+	  {{ prog.intro }}
+	</td>
+      </tr>
+{% endfor %}
+</table>
+
+</div>	
+
+{% endblock %}

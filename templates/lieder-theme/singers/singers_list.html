@@ -1,0 +1,41 @@
+{% load i18n %}
+{% extends "base" %}
+
+{% block content %}
+
+
+<div id="singers">
+      
+<h1>{% trans "the singers" %}</h1>
+
+	<table>
+	  <tr>
+	    <td>
+	      <img src="/lieder-media/img/singers01.jpg" />
+	      </td>
+		<td>
+		
+{% regroup object_list|dictsort:"voice" by voice as grouped %}
+<table class="singers-list">
+<tr>      
+{% for group in grouped %}
+    <td>{{ group.grouper|upper }}</td>
+{% endfor %}
+</tr>      
+<tr>      
+{% for group in grouped %}
+	<td>
+    <ul>
+    {% for singer in group.list|dictsort:"name" %}
+      <li>{{ singer.name }}</li>
+    {% endfor %}
+    </ul>
+	</td>
+{% endfor %}
+</tr>      
+</table>
+	    </td>
+	  </tr>
+	</table>
+</div>
+{% endblock %}

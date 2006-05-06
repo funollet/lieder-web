@@ -1,0 +1,13 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{{ object.name }}</h1>
+
+<img src="{{ object.get_image_url }}" />
+<br>
+{{ object.body }}
+
+{% endblock %}

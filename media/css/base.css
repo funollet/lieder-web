@@ -1,0 +1,99 @@
+/* base.css */
+
+h1 {
+  border-bottom: thin solid ;
+  font-size: 1em;
+}
+h1,h2,h3 {
+  color:#ea7000;
+}
+a img {
+  border: none;
+}
+a {
+  color: black ;
+  font-weight: bold;
+}
+a:hover {
+  color: #ea7000;
+}
+li {
+  list-style-type: none;
+}
+table {
+  vertical-align: top;
+}
+table, td {
+  border-width: 0px ;
+}
+
+/*------------------------------------------------------------*/
+
+#programmes table {
+  background-color: #ea7000;
+  padding: 20px ;
+}
+#programmes td {
+  border: 1px solid white ;
+  padding: 0px ;
+  width: 40% ;
+}
+
+/*------------------------------------------------------------*/
+
+table.singers-list {
+  border-top: thin solid #ea7000;
+  border-bottom: thin solid #ea7000;
+}
+
+
+/*------------------------------------------------------------*/
+
+#menu-top {
+  clear: both;
+  position: absolute ;
+  margin-left: 200px ;
+  margin-top: 20px ;
+}
+#menu-top li {
+  display:block;
+  float:left;
+  list-style-type:none;
+}
+#menu-top a {
+  display:block;
+  float:left;
+  padding: .5em 1em .5em 1em ;
+  font-size: 1em ;
+  color:#ea7000;
+  background-color: white;
+}
+#menu-top a:hover {
+  color:white;
+  background-color: #ea7000;
+}
+
+/*------------------------------------------------------------*/
+
+#menu-lang {
+  clear: both;
+  position: absolute ;
+  margin-left: 600px ;
+}
+#menu-lang li {
+  display:block;
+  float:left;
+  list-style-type:none;
+}
+#menu-lang a {
+  display:block;
+  float:left;
+  padding: .5em 1em .5em 1em ;
+  font-size: 1em ;
+  color:#ea7000;
+  background-color: white;
+}
+#menu-lang a:hover {
+  color:white;
+  background-color: #ea7000;
+}

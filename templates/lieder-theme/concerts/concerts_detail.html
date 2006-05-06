@@ -1,0 +1,22 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{{ object.name }}</h1>
+
+<table border=1>
+      <tr>
+	<td>{% trans "first part" %}</td>
+	<td>{% trans "second part" %}</td>
+      </tr>      
+      <tr>
+	<td>{{ object.first_part }}</td>
+	<td>{{ object.second_part }}</td>
+	<td></td>
+      </tr>      
+</table>
+{{ object.footer }}
+
+{% endblock %}

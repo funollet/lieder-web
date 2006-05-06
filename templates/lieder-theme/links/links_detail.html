@@ -1,0 +1,15 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{{ object.name }}</h1>
+
+    <a href="{{ object.url }}">{{ object.name }}</a>
+    <br>
+    {{ object.description }}
+    
+    
+
+{% endblock %}

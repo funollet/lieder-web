@@ -1,0 +1,22 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{% trans "links" %}: {{ object.name }}</h1>
+
+
+<ul>
+{% for link in object.get_link_list %}
+	<li>
+	<a href="{{ link.url }}">{{ link.name }}</a>
+	{% if link.description_markdown %}
+	<br>
+	{{ link.description }}
+	{% endif %}
+	</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

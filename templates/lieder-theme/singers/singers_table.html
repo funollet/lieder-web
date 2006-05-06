@@ -1,0 +1,41 @@
+{% load i18n singertags %}
+
+{% get_singers as singers %}
+
+<table>
+<tr>
+    <td>{% trans "Sopranos" %}</td>
+    <td>{% trans "Altos" %}</td>
+    <td>{% trans "Tenors" %}</td>
+    <td>{% trans "Basses" %}</td>
+</tr>
+<tr>
+<td>
+    <ul>
+    {% for name in singers.sopranos%}
+        <li>{{ name }}</li>
+    {% endfor %}
+    </ul>
+</td>
+<td>
+    <ul>
+    {% for name in singers.altos %}
+        <li>{{ name }}</li>
+    {% endfor %}
+    </ul>
+</td>
+<td>
+    <ul>
+    {% for name in singers.tenors %}
+        <li>{{ name }}</li>
+    {% endfor %}
+    </ul>
+</td>
+<td>
+    <ul>
+    {% for name in singers.basses%}
+        <li>{{ name }}</li>
+    {% endfor %}
+    </ul>
+</td>
+<tr></table>

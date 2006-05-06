@@ -1,0 +1,19 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+
+<h1>{% trans "programmes" %}</h1>
+
+<ul>
+{% for prog in object_list %}
+	<li>
+	<a href="{{ prog.slug }}">{{ prog.name }}</a>
+	<br>
+	{{ prog.intro }}
+	</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

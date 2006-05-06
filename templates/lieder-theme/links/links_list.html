@@ -1,0 +1,28 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{% trans "links" %}</h1>
+
+{% regroup object_list|dictsort:"get_category" by get_category as grouped %}
+
+<ul>
+{% for group in grouped %}
+      <li>
+	{{ group.grouper }}
+	{{ group.description }}
+      </li>
+
+{% comment %}
+    {% for link in group.list|dictsort:"name" %}
+      <a href="{{ link.url }}">{{ link.name }}</a><br>
+      {{ link.description }}<br>
+    {% endfor %}
+{% endcomment %}
+
+{% endfor %}
+</ul>      
+
+{% endblock %}

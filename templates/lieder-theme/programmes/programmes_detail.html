@@ -1,0 +1,19 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+<div id="programmes">      
+
+<h1>{{ object.name }}</h1>
+
+<table>
+      <tr>
+	<td>{{ object.first_part }}</td>
+	<td>{{ object.second_part }}</td>
+      </tr>      
+</table>
+{{ object.footer }}
+
+</div>
+{% endblock %}

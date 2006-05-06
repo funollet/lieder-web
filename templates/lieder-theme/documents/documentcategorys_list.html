@@ -1,0 +1,21 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{% trans "documents" %}</h1>
+
+<ul>
+{% for categ in object_list %}
+      <li>
+	<h2>{{ categ.name }}</h2>      
+	{% if docu_cat.description_markdown %}
+	<br>
+        {{ docu_cat.description }}
+	{% endif %}
+      </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

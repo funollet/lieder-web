@@ -1,0 +1,60 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+      
+<h1>{% trans "concerts" %}</h1>
+
+<ul>
+{% for prog in object_list %}
+	{% if prog.city %}
+      <li>
+	{% trans "City: " %}<strong>{{ prog.city }}</strong>
+      </li>
+    {% endif %}
+    {% if prog.auditorium %}
+    <li>
+      {% trans "Auditorium: " %}<strong>{{ prog.auditorium }}</strong></li>
+    {% endif %}
+    {% if prog.address %}
+    <li>
+      {% trans "Address:" %}<strong>{{ prog.address }}</strong>
+    </li>
+    {% endif %}
+    {% if prog.cycle %}
+    <li>
+      {% trans "Cycle:" %}<strong>{{ prog.cycle }}</strong>
+    </li>
+    {% endif %}
+    {% if prog.programme %}
+    <li>
+      {% trans "Programme:" %}<strong>{{ prog.programme }}</strong>
+    </li>
+    {% endif %}
+    {% if prog.tickets %}
+    <li>
+      {% trans "Tickets:" %}<strong>{{ prog.tickets }}</strong>
+    </li>
+    {% endif %}
+    {% if prog.price %}
+    <li>
+      {% trans "Price:" %}<strong>{{ prog.price }}</strong>
+    </li>
+    {% endif %}
+    {% if prog.organization %}
+    <li>
+      {% trans "Organization:" %}<strong>{{ prog.organization }}</strong>
+    </li>
+    {% endif %}
+    {% if prog.others_markdown %}
+    <li>
+      {% trans "Others:" %}{{ prog.others }}
+    </li>
+    {% endif %}
+    <hr>
+	
+{% endfor %}
+</ul>
+
+{% endblock %}
