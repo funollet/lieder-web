@@ -11,7 +11,7 @@ class LinkCategory (meta.Model):
 
     def catname(self):
         from lieder.apps.misc import mlang
-        return mlang.get_text(self, 'name')
+        return mlang.get_text(self, 'catname')
     catname.short_description = _('name')
     
     
@@ -23,7 +23,7 @@ class LinkCategory (meta.Model):
 
     def catdescription(self):
         from lieder.apps.misc import mlang
-        return mlang.get_text(self, 'description')
+        return mlang.get_text(self, 'catdescription')
     catdescription.short_description = _('description')
     
 
@@ -54,6 +54,7 @@ class LinkCategory (meta.Model):
     def _pre_save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+
 
 class CatName (CharTranslation):
     parent = meta.ForeignKey(LinkCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
@@ -131,7 +132,6 @@ class Link (meta.Model):
     def _pre_save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
-
 
 class Name (CharTranslation):
     parent = meta.ForeignKey(Link, edit_inline=meta.TABULAR, num_in_admin=1, 
