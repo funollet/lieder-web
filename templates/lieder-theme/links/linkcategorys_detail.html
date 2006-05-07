@@ -4,16 +4,16 @@
 
 {% block content %}
       
-<h1>{% trans "links" %}: {{ object.name }}</h1>
+<h1>{% trans "links" %}: {{ object.catname }}</h1>
 
 
 <ul>
 {% for link in object.get_link_list %}
 	<li>
 	<a href="{{ link.url }}">{{ link.name }}</a>
-	{% if link.description_markdown %}
-	<br>
-	{{ link.description }}
+	{% if link.description %}
+            <br>
+            {{ link.description }}
 	{% endif %}
 	</li>
 {% endfor %}

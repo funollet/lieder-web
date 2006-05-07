@@ -55,6 +55,9 @@ class LinkCategory (meta.Model):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
 
+    def get_absolute_url (self):
+        return '/links/categ/%s' % self.slug
+
 
 class CatName (CharTranslation):
     parent = meta.ForeignKey(LinkCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
@@ -132,6 +135,10 @@ class Link (meta.Model):
     def _pre_save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+
+    def get_absolute_url (self):
+        return '/links/%s' % self.slug
+
 
 class Name (CharTranslation):
     parent = meta.ForeignKey(Link, edit_inline=meta.TABULAR, num_in_admin=1, 
