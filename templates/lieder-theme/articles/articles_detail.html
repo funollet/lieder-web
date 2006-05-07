@@ -6,8 +6,10 @@
       
 <h1>{{ object.name }}</h1>
 
+{% if object.image %}
 <img src="{{ object.get_image_url }}" />
 <br>
+{% endif %}
 {{ object.body }}
 
 {% endblock %}
