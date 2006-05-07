@@ -73,6 +73,10 @@ class Programme (meta.Model):
     def __repr__ (self):
         return self.default_name
 
+    def get_absolute_url (self):
+        pass
+
+
     class META:
         verbose_name = _('programme')
         verbose_name_plural = _('programmes') 

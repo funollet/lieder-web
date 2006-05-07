@@ -58,6 +58,9 @@ class DocumentCategory (meta.Model):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
 
+    def get_absolute_url (self):
+        pass
+    
 
 class CatName (CharTranslation):
     parent = meta.ForeignKey(DocumentCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
@@ -142,6 +145,10 @@ class Document (meta.Model):
     def _pre_save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+
+    def get_absolute_url (self):
+        pass
+
 
 class Name (CharTranslation):
     parent = meta.ForeignKey(Document, edit_inline=meta.TABULAR, num_in_admin=1, 

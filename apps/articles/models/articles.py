@@ -32,7 +32,11 @@ class Section (meta.Model):
     def __repr__ (self):
         return self.default_secname
     
-    
+    def get_absolute_url (self):
+        pass
+
+
+
 class SecName (CharTranslation):
     parent = meta.ForeignKey(Section, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
@@ -51,16 +55,6 @@ class Article (meta.Model):
     section = meta.ForeignKey (Section,
         verbose_name=_('section'), blank=True, )
  
-#     name = meta.CharField (_('name'), maxlength=200, )
-# 
-#     intro = meta.TextField (_('introduction'), editable=False,)
-#     intro_markup = meta.TextField (_('introduction'), 
-#         help_text = misc.MARKUP_HELP, blank=True, )
-# 
-#     body = meta.TextField (_('body'), editable=False,)
-#     body_markup = meta.TextField (_('body'), 
-#         help_text = misc.MARKUP_HELP, blank=True, )
-
     default_name = meta.CharField (_('name'), maxlength=200, )
 
     def name(self):
@@ -135,8 +129,11 @@ class Article (meta.Model):
     def _pre_save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
-        
-        
+
+    def get_absolute_url (self):
+        pass
+
+
 class Name (CharTranslation):
     parent = meta.ForeignKey(Article, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))

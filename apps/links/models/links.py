@@ -56,8 +56,9 @@ class LinkCategory (meta.Model):
         misc.parse_markup (self)
 
     def get_absolute_url (self):
-        return '/links/categ/%s' % self.slug
-
+        pass
+    
+    
 
 class CatName (CharTranslation):
     parent = meta.ForeignKey(LinkCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
@@ -137,8 +138,7 @@ class Link (meta.Model):
         misc.parse_markup (self)
 
     def get_absolute_url (self):
-        return '/links/%s' % self.slug
-
+        pass
 
 class Name (CharTranslation):
     parent = meta.ForeignKey(Link, edit_inline=meta.TABULAR, num_in_admin=1, 

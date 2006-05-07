@@ -2,6 +2,7 @@
 # Django settings for lieder project.
 
 LIEDER_ROOT = '/home/jordif/code/lieder/'
+LOCAL_DEV = True
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -78,6 +79,17 @@ INSTALLED_APPS = (
     'lieder.apps.programmes',
     'lieder.apps.singers',
 )
+
+ABSOLUTE_URL_OVERRIDES = {
+    'articles.articles': lambda o: '/articles/%s' % o.slug ,
+    'articles.sections': lambda o: '/articles/section/%s' % o.id ,
+    'concerts.concerts': lambda o: '/concerts/%s' % o.slug ,
+    'documents.documents': lambda o: '/documents/%s' % o.slug ,
+    'documents.documentcategorys': lambda o: '/documents/categ/%s' % o.slug ,
+    'links.links': lambda o: '/links/%s' % o.slug ,
+    'links.linkcategorys': lambda o: '/links/categ/%s' % o.slug ,
+    'programmes.programmes': lambda o: '/programmes/%s' % o.slug ,
+}
 
 # LOCALE_PATHS = ( '/home/jordif/devel/djangos/locale/', )
 LANGUAGES = (

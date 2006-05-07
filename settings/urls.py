@@ -1,9 +1,10 @@
 from django.conf.urls.defaults import *
-from django.conf.settings import DEBUG, LIEDER_ROOT
+from django.conf.settings import LOCAL_DEV, MEDIA_ROOT
 
 urlpatterns = patterns('',
     (r'^admin/', include('django.contrib.admin.urls.admin')),
     (r'^i18n/', include('django.conf.urls.i18n')),
+    (r'^r/', include('django.conf.urls.shortcut')),
     #
     (r'^articles/', include('lieder.apps.articles.urls')),
     (r'^concerts/', include('lieder.apps.concerts.urls')),
@@ -15,9 +16,9 @@ urlpatterns = patterns('',
     (r'^', include('lieder.apps.articles.urls')),
 )
 
-if DEBUG:
+if LOCAL_DEV:
     urlpatterns += patterns('',
     (r'^media-lieder/(?P<path>.*)$', 'django.views.static.serve',
-      {'document_root': LIEDER_ROOT + 'media-lieder/',
+      {'document_root': MEDIA_ROOT,
        'show_indexes': True, }),
 )

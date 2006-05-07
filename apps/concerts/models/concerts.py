@@ -88,6 +88,8 @@ class Concert (meta.Model):
         from lieder.apps.misc import misc
         misc.parse_markup(self)
 
+    def get_absolute_url (self):
+        pass
 
     class META:
         verbose_name = _('concert')
