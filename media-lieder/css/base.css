@@ -77,6 +77,7 @@ table.singers-list {
 
 #menu-lang {
   clear: both;
+  align: center;
   position: absolute ;
   margin-left: 600px ;
 }
@@ -89,7 +90,7 @@ table.singers-list {
   display:block;
   float:left;
   padding: .5em 1em .5em 1em ;
-  font-size: 1em ;
+  font-size: .8em ;
   color:#ea7000;
   background-color: white;
 }

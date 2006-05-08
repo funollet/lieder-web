@@ -12,7 +12,7 @@
     <li>
     {% if article.image %}
         <a href="{{ article.slug }}">
-        <img src={{ article.get_image_url }} /></a>
+        <img src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 /></a>
     {% endif %}
     <a href="{{ article.slug }}">{{ article.name }}</a>
     </li>

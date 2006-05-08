@@ -77,7 +77,7 @@ class Concert (meta.Model):
 
 
     slug = meta.SlugField (_('slug'), unique_for_date = 'start_date',
-        prepopulate_from = ('default_city', 'start_date'),
+        prepopulate_from = ('default_city', 'default_organization', 'default_auditorium',),
         help_text = _('Readable link name'),
         )
 
