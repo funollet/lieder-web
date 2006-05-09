@@ -1,19 +1,16 @@
 {% load i18n %}
 {% extends "base" %}
-
-
-{% block content %}
-
+                {% block content %}
 <h1>{% trans "programmes" %}</h1>
 
 <ul>
 {% for prog in object_list %}
 	<li>
-	<a href="{{ prog.slug }}">{{ prog.name }}</a>
-	<br>
-	{{ prog.intro }}
+	<a href="{{ prog.get_absolute_url }}">{{ prog.name }}</a>
+        {% if prog.intro %}
+	<p>{{ prog.intro }}</p>
+        {% endif %}
 	</li>
 {% endfor %}
 </ul>
-
-{% endblock %}
+                {% endblock %}

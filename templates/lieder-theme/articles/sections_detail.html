@@ -3,12 +3,11 @@
 
 
 {% block content %}
-
-<div id="articles">      
-<h1>{% trans "articles" %}</h1>
+      
+<h1>{{ object.secname }}</h1>
 
 <ul>
-{% for article in object_list %}
+{% for article in object.get_article_list %}
     <li>
     {% if article.image %}
         <a href="{{ article.get_absolute_url }}">
@@ -20,5 +19,4 @@
 {% endfor %}
 </ul>
 
-</div>	
 {% endblock %}

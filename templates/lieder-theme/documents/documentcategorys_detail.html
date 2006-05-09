@@ -1,22 +1,17 @@
 {% load i18n %}
 {% extends "base" %}
 
-
-{% block content %}
-      
-<h1>{% trans "documents" %}: {{ object.name }}</h1>
-
+                {% block content %}
+<h1>{% trans "documents" %}: {{ object.catname }}</h1>
 
 <ul>
 {% for docu in object.get_document_list %}
 	<li>
 	<a href="{{ docu.get_file_url }}">{{ docu.name }}</a>
-	{% if docu.description_markdown %}
-	<br>
-	{{ docu.description }}
+	{% if docu.description %}
+	<p>{{ docu.description }}</p>
 	{% endif %}
 	</li>
 {% endfor %}
 </ul>
-
-{% endblock %}
+                {% endblock %}

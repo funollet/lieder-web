@@ -9,10 +9,10 @@
 <ul>
 {% for categ in object_list %}
       <li>
-	<h2>{{ categ.name }}</h2>      
-	{% if docu_cat.description_markdown %}
+	<a href="{{ categ.get_absolute_url }}" />{{ categ.catname }}</a>
+	{% if categ.catdescription %}
 	<br>
-        {{ docu_cat.description }}
+        {{ categ.catdescription }}
 	{% endif %}
       </li>
 {% endfor %}
