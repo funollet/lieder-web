@@ -56,6 +56,7 @@ class MenuItem (meta.Model):
         from django.models.core import sites
         from django.conf.settings import SITE_ID
 
+        self.relative_url = ''
         domain = sites.get_object(pk=1).domain
         if domain in self.url :
             begin = self.url.find (domain)
