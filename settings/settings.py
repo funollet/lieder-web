@@ -81,13 +81,13 @@ INSTALLED_APPS = (
 )
 
 ABSOLUTE_URL_OVERRIDES = {
-    'articles.articles': lambda o: '/articles/%s' % o.slug ,
-    'articles.sections': lambda o: '/articles/section/%s' % o.id ,
+    'articles.articles': lambda o: '/%s/%s' % (o.section_id, o.slug) ,
+    'articles.sections': lambda o: '/%s' % o.id ,
     'concerts.concerts': lambda o: '/concerts/%s' % o.slug ,
-    'documents.documents': lambda o: '/documents/%s' % o.slug ,
-    'documents.documentcategorys': lambda o: '/documents/categ/%s' % o.slug ,
-    'links.links': lambda o: '/links/%s' % o.slug ,
-    'links.linkcategorys': lambda o: '/links/categ/%s' % o.slug ,
+    'documents.documents': lambda o: '/documents/%s/%s' % (o.get_category(), o.slug) ,
+    'documents.documentcategorys': lambda o: '/documents/%s' % o.slug ,
+    'links.links': lambda o: '/links/%s/%s' % (o.get_category, o.slug) ,
+    'links.linkcategorys': lambda o: '/links/%s' % o.slug ,
     'programmes.programmes': lambda o: '/programmes/%s' % o.slug ,
 }
 
