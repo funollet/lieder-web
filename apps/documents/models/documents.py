@@ -33,10 +33,10 @@ class DocumentCategory (meta.Model):
     catdescription.short_description = _('description')
 
     pub_date = meta.DateTimeField (_('publication date'), )
-    slug = meta.SlugField (_('slug'),
+    slug = meta.SlugField (_('permalink'),
         unique=True,
         prepopulate_from=('default_catname',),
-        help_text = _('Readable link name'),
+        help_text = _('Name to be linked'),
         )
 
     class META:
@@ -116,7 +116,7 @@ class Document (meta.Model):
         blank = True,
         )
     pub_date = meta.DateTimeField (_('publication date'), )
-    slug = meta.SlugField (_('slug'),
+    slug = meta.SlugField (_('permalink'),
         prepopulate_from = ('default_name',),
         unique = True,
         )

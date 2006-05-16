@@ -2,7 +2,7 @@
 {% extends "base" %}
 
                 {% block content %}
-<h1>{% trans "documents" %}: {{ object.catname }}</h1>
+<h1>{% filter lower %}{% trans "Documents" %}: {{ object.catname }}{% endfilter %}</h1>
 
 <ul>
 {% for docu in object.get_document_list %}

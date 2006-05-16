@@ -3,16 +3,22 @@
 
 
 {% block content %}
-      
-<h1>{% trans "concerts" %}</h1>
+
+<h1>{% filter lower %}{% trans "Concerts" %}{% endfilter %}</h1>
 
 <ul>
 {% for prog in object_list %}
-	{% if prog.city %}
+
+    {% if prog.city %}
       <li>
 	{% trans "City: " %}<strong>{{ prog.city }}</strong>
       </li>
     {% endif %}
+    {% if prog.start_date %}
+        <li>
+	{% trans "Date: " %}<strong>{{ prog.start_date}}</strong>
+        </li>
+    {% endif %}    
     {% if prog.auditorium %}
     <li>
       {% trans "Auditorium: " %}<strong>{{ prog.auditorium }}</strong></li>

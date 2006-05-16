@@ -1,7 +1,8 @@
 {% load i18n %}
 {% extends "base" %}
                 {% block content %}
-<h1>{% trans "programmes" %}</h1>
+                
+<h1>{% filter lower %}{% trans "Programmes" %}{% endfilter %}</h1>
 
 <ul>
 {% for prog in object_list %}

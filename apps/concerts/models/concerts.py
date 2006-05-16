@@ -6,7 +6,14 @@ from lieder.apps.misc import mlang
 
 
 class Concert (meta.Model):
-    start_date = meta.DateTimeField (_('start time'), )
+    pub_date = meta.DateTimeField (_('Unpublication date'), )
+    
+    default_start_date = meta.CharField (_('concert start date'), maxlength=200, )
+
+    def start_date(self):
+        from lieder.apps.misc import mlang
+        return mlang.get_text(self, 'start_date')
+    start_date.short_description = _('start date')
     
     default_city = meta.CharField (_('city'), maxlength=200, )
 
@@ -76,13 +83,13 @@ class Concert (meta.Model):
     others.short_description = _('others')
 
 
-    slug = meta.SlugField (_('slug'), unique_for_date = 'start_date',
-        prepopulate_from = ('default_city', 'default_organization', 'default_auditorium',),
-        help_text = _('Readable link name'),
+    slug = meta.SlugField (_('permalink'),
+        prepopulate_from = ('default_city', 'default_start_date', 'default_auditorium',),
+        help_text = _('Name to be linked'),
         )
 
     def __repr__ (self):
-        return ' :: '.join((self.default_city, str(self.start_date.date()), ))
+        return ' :: '.join((self.default_city, self.default_start_date, ))
 
     def _pre_save (self):
         from lieder.apps.misc import misc
@@ -95,10 +102,18 @@ class Concert (meta.Model):
         verbose_name = _('concert')
         verbose_name_plural = _('concerts')
         admin = meta.Admin(
-            list_display = ('default_city', 'default_auditorium', 'start_date',
+            list_display = ('default_city', 'default_auditorium', 'default_start_date',
                             'default_cycle', 'default_programme'),
             list_filter = ('default_city', 'default_cycle', 'default_programme'),
             )
+
+
+class start_date (CharTranslation):
+    parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
+       max_num_in_admin=len(CHOICES))
+    class META:
+        verbose_name = _('translation for start_date')
+        verbose_name_plural = _('translations for start_dates')
 
 
 class city (CharTranslation):

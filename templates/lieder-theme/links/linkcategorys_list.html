@@ -4,7 +4,7 @@
 
 {% block content %}
       
-<h1>{% trans "links" %}</h1>
+<h1>{% filter lower %}{% trans "Links" %}{% endfilter %}</h1>
 
 <ul>
 {% for categ in object_list %}

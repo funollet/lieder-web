@@ -5,7 +5,7 @@ LIEDER_ROOT = '/home/jordif/code/lieder/'
 LOCAL_DEV = True
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True
 
 ADMINS = (
     ('Jordi Funollet', 'jordi.f@ati.es'),
@@ -81,10 +81,10 @@ INSTALLED_APPS = (
 )
 
 ABSOLUTE_URL_OVERRIDES = {
-    'articles.articles': lambda o: '/%s/%s' % (o.section_id, o.slug) ,
-    'articles.sections': lambda o: '/%s' % o.id ,
+    'articles.articles': lambda o: '/%s/%s' % (o.get_section().slug, o.slug) ,
+    'articles.sections': lambda o: '/%s' % o.slug ,
     'concerts.concerts': lambda o: '/concerts/%s' % o.slug ,
-    'documents.documents': lambda o: '/documents/%s/%s' % (o.get_category(), o.slug) ,
+    'documents.documents': lambda o: '/documents/%s/%s' % (o.get_category().slug, o.slug) ,
     'documents.documentcategorys': lambda o: '/documents/%s' % o.slug ,
     'links.links': lambda o: '/links/%s/%s' % (o.get_category, o.slug) ,
     'links.linkcategorys': lambda o: '/links/%s' % o.slug ,

@@ -59,10 +59,10 @@ class Programme (meta.Model):
 
 
     pub_date = meta.DateTimeField (_('publication date'),)
-    slug = meta.SlugField (_('slug'),
+    slug = meta.SlugField (_('permalink'),
         prepopulate_from = ('default_name',),
         unique = True,
-        help_text = _('Readable link name'),
+        help_text = _('Name to be linked'),
         )
 
 

@@ -21,6 +21,11 @@ class Section (meta.Model):
         return mlang.get_text(self, 'secname')
     secname.short_description = _('name')
     
+    slug = meta.SlugField (_('permalink'),
+        prepopulate_from = ('default_secname',),
+        unique = True,
+        help_text = _('Name to be linked'),
+    )
     pub_date = meta.DateTimeField (_('publication date'), )
 
         
@@ -53,7 +58,7 @@ class Article (meta.Model):
         default='drf',
         )
     section = meta.ForeignKey (Section,
-        verbose_name=_('section'), blank=True, )
+        verbose_name=_('section'),)
  
     default_name = meta.CharField (_('name'), maxlength=200, )
 
@@ -87,10 +92,10 @@ class Article (meta.Model):
 
     pub_date = meta.DateTimeField (_('publication date'),
         auto_now_add = True, )
-    slug = meta.SlugField (_('slug'),
+    slug = meta.SlugField (_('permalink'),
         prepopulate_from = ('default_name',),
         unique = True,
-        help_text = _('Readable link name'),
+        help_text = _('Name to be linked'),
         )
     image = meta.ImageField (_('image'),
         upload_to = 'articles',

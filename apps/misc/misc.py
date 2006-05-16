@@ -6,7 +6,11 @@ from django.utils.translation import gettext_lazy as _
 
 MARKDOWN_HELP = _('Use <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a> Syntax')
 TEXTILE_HELP = _('Use <a href="http://daringfireball.net/projects/markdown/basics">Textile</a> Syntax')
-DOCUTILS_HELP = _('Use <a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">reST</a> Syntax')
+DOCUTILS_HELP = ('''<pre>
+`un link`_    *italica*    **negreta**    Titol     - un punt d'una llista
+                                          -----     - segon punt
+.. _`un link`: http://www.google.com                 - llista indentada
+</pre>(Documentació completa de la <a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">sintaxis reST</a>).''')
 MARKUP_HELP = DOCUTILS_HELP
 
 

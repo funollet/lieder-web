@@ -1,11 +1,10 @@
 {% load i18n %}
 {% extends "base" %}
 
-
 {% block content %}
 
 <div class="articles-sections">      
-<h1>{% trans "sections" %}</h1>
+<h1>{% filter lower %}{% trans "sections" %}{% endfilter %}</h1>
 
 <ul>
 {% for section in object_list %}

@@ -4,11 +4,16 @@
 
 {% block content %}
       
-<h1>{{ object.name }}</h1>
+<h1>{{ object.name|lower }}</h1>
 
     {% if object.city %}
         <li>
 	{% trans "City: " %}<strong>{{ object.city }}</strong>
+        </li>
+    {% endif %}
+    {% if object.start_date %}
+        <li>
+	{% trans "Date: " %}<strong>{{ object.start_date}}</strong>
         </li>
     {% endif %}
     {% if object.auditorium %}

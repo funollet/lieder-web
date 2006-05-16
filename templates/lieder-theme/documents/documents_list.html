@@ -4,7 +4,7 @@
 
 {% block content %}
       
-<h1>{% trans "documents" %}</h1>
+<h1>{% filter lower %}{% trans "Documents" %}{% endfilter %}</h1>
 
 {% regroup object_list|dictsort:"get_category" by get_category as grouped %}
 

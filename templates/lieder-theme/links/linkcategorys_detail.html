@@ -4,8 +4,7 @@
 
 {% block content %}
       
-<h1>{% trans "links" %}: {{ object.catname }}</h1>
-
+<h1>{% filter lower %}{% trans "Links" %}: {{ object.catname }}{% endfilter %}</h1>
 
 <ul>
 {% for link in object.get_link_list %}

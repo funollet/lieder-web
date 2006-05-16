@@ -3,20 +3,24 @@
 
 
 {% block content %}
-      
-<h1>{{ object.secname|lower }}</h1>
+
+<div id="articles-enregistraments">      
+<h1>{% trans "articles" %}</h1>
 
 <ul>
-{% for article in object.get_article_list %}
+{% for article in object_list %}
     <li>
     {% if article.image %}
         <a href="{{ article.get_absolute_url }}">
         <img src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 /></a>
     {% endif %}
-    <a href="{{ article.get_absolute_url }}">{{ article.name }}</a>
+    <p><a href="{{ article.get_absolute_url }}">{{ article.name }}</a></p>
+    {% if article.introduction %}
+    <p>{{ article.introduction }}</p>
+    {% endif %}
     </li>
-
 {% endfor %}
 </ul>
 
+</div>	
 {% endblock %}
