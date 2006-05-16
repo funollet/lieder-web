@@ -90,8 +90,7 @@ class Article (meta.Model):
     body.short_description = _('body')
 
 
-    pub_date = meta.DateTimeField (_('publication date'),
-        auto_now_add = True, )
+    pub_date = meta.DateTimeField (_('publication date'))
     slug = meta.SlugField (_('permalink'),
         prepopulate_from = ('default_name',),
         unique = True,
@@ -111,14 +110,17 @@ class Article (meta.Model):
             list_filter = ('status', 'section',),
             fields = (
             (None, {
-            'fields': (('default_name', 'section', 'status'),)}
+            'fields': (('default_name', 'section'), ('status',),)}
              ),
             (_('Introduction'), {
             'classes': 'collapse',
             'fields': ('default_intro_markup',),
             }),
-            (None, {
+            (_('Body'), {
             'fields': ('default_body_markup',),
+            }),
+            (None, {
+            'fields': ('pub_date',),
             }),
             (_('Advanced'), {
             'classes': 'collapse',
