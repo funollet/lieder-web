@@ -13,7 +13,8 @@ urlpatterns = patterns('',
     (r'^programmes/', include('lieder.apps.programmes.urls')),
     (r'^singers/', include('lieder.apps.singers.urls')),
     #
-    (r'^', include('lieder.apps.concerts.urls')),
+    (r'^/', include('lieder.apps.concerts.urls')),
+    (r'^', include('lieder.apps.articles.urls')),
 )
 
 if LOCAL_DEV:
