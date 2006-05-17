@@ -12,7 +12,8 @@ section_dict_slug = dict(section_dict, slug_field='slug')
 # Not using object_id on urls: just 'slug'; k.i.s.s.
 #
 urlpatterns = patterns('lieder.apps.misc.views',
-    (r'^$', 'limited_object_list', section_dict, ),
+    #(r'^$', 'limited_object_list', section_dict, ),
+    (r'^$', 'limited_object_detail', dict(art_dict_slug, slug='la-nostra-histria') ),
     #
     # Special templates for some sections.
     (r'^enregistraments/$', 'limited_object_list',
