@@ -5,7 +5,8 @@
 {% block content %}
 
 <div id="articles-enregistraments">      
-<h1>{{ object.secname}}</h1>
+<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
+{{ object.secname|lower }}</h1>
 
 {% for article in object.get_article_list %}
     {% if article.image %}

@@ -3,63 +3,46 @@
 
 {% block content %}
 
-<h1>{% filter lower %}{% trans "Concerts" %}{% endfilter %}</h1>
+<h1 id="pageName">
+<img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
+{% filter lower %}{% trans "Concerts" %}{% endfilter %}</h1>   
+<div id="concerts">
 
-<ul>
-{% for prog in object_list %}
+{% for object in object_list %}
+    {% if object.city %}
+        <h2>{{ object.city }}</h2>
+    {% endif %}
+    {% if object.start_date %}
+        <p>{{ object.start_date}}</p>
+    {% endif %}
+    {% if object.auditorium %}
+        <p>{{ object.auditorium }}</p>
+    {% endif %}
 
-    {% if prog.city %}
-      <li>
-	{% trans "City: " %}<strong>{{ prog.city }}</strong>
-      </li>
+    {% if object.programme %}
+        <p><em>{{ object.programme }}</em></p>
     {% endif %}
-    {% if prog.start_date %}
-        <li>
-	{% trans "Date: " %}<strong>{{ prog.start_date}}</strong>
-        </li>
-    {% endif %}    
-    {% if prog.auditorium %}
-    <li>
-      {% trans "Auditorium: " %}<strong>{{ prog.auditorium }}</strong></li>
+    {% if object.cycle %}
+        <p>p{{ object.cycle }}</p>
     {% endif %}
-    {% if prog.address %}
-    <li>
-      {% trans "Address:" %}<strong>{{ prog.address }}</strong>
-    </li>
+    {% if object.organization %}
+        <p>{{ object.organization }}</p>
     {% endif %}
-    {% if prog.cycle %}
-    <li>
-      {% trans "Cycle:" %}<strong>{{ prog.cycle }}</strong>
-    </li>
+    {% if object.address %}
+        <p><em>{{ object.address }}</em></p>
     {% endif %}
-    {% if prog.programme %}
-    <li>
-      {% trans "Programme:" %}<strong>{{ prog.programme }}</strong>
-    </li>
+    {% if object.tickets %}
+        <p><strong>{% trans "Tickets:" %}</strong>{{ object.tickets }}
     {% endif %}
-    {% if prog.tickets %}
-    <li>
-      {% trans "Tickets:" %}<strong>{{ prog.tickets }}</strong>
-    </li>
+    {% if object.price %}
+        <strong>{% trans "Price:" %}</strong>{{ object.price }}</p>
     {% endif %}
-    {% if prog.price %}
-    <li>
-      {% trans "Price:" %}<strong>{{ prog.price }}</strong>
-    </li>
+    {% if object.others_markdown %}
+        <p> {% trans "Others:" %}{{ object.others }} </p>
     {% endif %}
-    {% if prog.organization %}
-    <li>
-      {% trans "Organization:" %}<strong>{{ prog.organization }}</strong>
-    </li>
-    {% endif %}
-    {% if prog.others_markdown %}
-    <li>
-      {% trans "Others:" %}{{ prog.others }}
-    </li>
-    {% endif %}
-    <hr>
-	
+    
+    <p class="filet">&nbsp;</p>
 {% endfor %}
-</ul>
 
+</div>
 {% endblock %}
