@@ -5,22 +5,18 @@
 {% block content %}
 
 <div id="articles-enregistraments">      
-<h1>{% trans "articles" %}</h1>
+<h1>{{ object.secname}}</h1>
 
-<ul>
-{% for article in object_list %}
-    <li>
+{% for article in object.get_article_list %}
     {% if article.image %}
         <a href="{{ article.get_absolute_url }}">
         <img src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 /></a>
     {% endif %}
-    <p><a href="{{ article.get_absolute_url }}">{{ article.name }}</a></p>
-    {% if article.introduction %}
-    <p>{{ article.introduction }}</p>
+    <h2><a href="{{ article.get_absolute_url }}">{{ article.name }}</a></h2>
+    {% if article.intro %}
+        {{ article.intro }}
     {% endif %}
-    </li>
 {% endfor %}
-</ul>
 
 </div>	
 {% endblock %}

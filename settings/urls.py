@@ -17,8 +17,8 @@ urlpatterns = patterns('',
 )
 
 if LOCAL_DEV:
-    urlpatterns += patterns('',
+    urlpatterns = patterns('',
     (r'^media-lieder/(?P<path>.*)$', 'django.views.static.serve',
       {'document_root': MEDIA_ROOT,
        'show_indexes': True, }),
-)
+) + urlpatterns

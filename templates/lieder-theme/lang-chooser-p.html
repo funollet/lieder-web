@@ -1,0 +1,5 @@
+
+{% for lang in LANGUAGES %}
+    <a href="/i18n/setlang/?language={{ lang.0 }}">{{ lang.0 }}</a>
+    {% if not forloop.last %} | {% endif %}
+{% endfor %}

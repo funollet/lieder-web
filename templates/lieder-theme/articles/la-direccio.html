@@ -1,0 +1,19 @@
+{% load i18n %}
+{% extends "base" %}
+
+
+{% block content %}
+
+<div id="articles-direccio"> 
+<h1>{{ object.secname }}</h1>
+
+{% for article in object.get_article_list %}
+    <h2>{{ article.name }}</h2>
+    {% if article.image %}
+        <img src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 />
+    {% endif %}
+    {{ article.body }}
+{% endfor %}
+
+</div>	
+{% endblock %}
