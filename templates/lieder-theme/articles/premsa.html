@@ -4,20 +4,21 @@
 
 {% block content %}
 
-<div id="articles-premsa">      
 <h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
 {{ object.secname|lower }}</h1>
 
+<div id="contentsub">
 {% for article in object.get_article_list %}
-    {% if article.image %}
-        <a href="{{ article.get_image_url }}">
-        <img src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 /></a>
-    {% endif %}
-    <h2><a href="{{ article.get_image_url }}">{{ article.name }}</a></h2>
+    
+    <h2><a href="{{ article.get_image_url }}">
+    <img class="premsa" src="/media-lieder/img/pictopremsa.png" alt="" width="21" height="21" border="0" align="absbottom" />
+    {{ article.name }}</a></h2>
     {% if article.intro %}
         {{ article.intro }}
     {% endif %}
+    <p class="filet">&nbsp;</p>
 {% endfor %}
 
-</div>	
+</div>
+
 {% endblock %}

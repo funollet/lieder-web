@@ -6,39 +6,49 @@
 <h1 id="pageName">
 <img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
 {% filter lower %}{% trans "Concerts" %}{% endfilter %}</h1>   
-<div id="concerts">
+<div id="contentsub">
 
 {% for object in object_list %}
     {% if object.city %}
         <h2>{{ object.city }}</h2>
     {% endif %}
+    
     {% if object.start_date %}
         <p>{{ object.start_date}}</p>
     {% endif %}
+    
+    <p>
     {% if object.auditorium %}
-        <p>{{ object.auditorium }}</p>
-    {% endif %}
-
-    {% if object.programme %}
-        <p><em>{{ object.programme }}</em></p>
-    {% endif %}
-    {% if object.cycle %}
-        <p>p{{ object.cycle }}</p>
-    {% endif %}
-    {% if object.organization %}
-        <p>{{ object.organization }}</p>
+        {{ object.auditorium }}<br />
     {% endif %}
     {% if object.address %}
-        <p><em>{{ object.address }}</em></p>
+        <em>{{ object.address }}</em><br />
     {% endif %}
+    </p>
+    
+    <p>
+    {% if object.programme %}
+        <em>{{ object.programme }}</em><br />
+    {% endif %}
+    {% if object.cycle %}
+        {{ object.cycle }}<br />
+    {% endif %}
+    {% if object.organization %}
+        {{ object.organization }}<br />
+    {% endif %}
+    </p>
+    
+    <p>
     {% if object.tickets %}
-        <p><strong>{% trans "Tickets:" %}</strong>{{ object.tickets }}
+        <strong>{% trans "Tickets" %}: </strong>{{ object.tickets }}
     {% endif %}
     {% if object.price %}
-        <strong>{% trans "Price:" %}</strong>{{ object.price }}</p>
+        <strong>{% trans "Price" %}: </strong>{{ object.price }}
     {% endif %}
+    </p>
+    
     {% if object.others_markdown %}
-        <p> {% trans "Others:" %}{{ object.others }} </p>
+        <p> {% trans "Others" %}: {{ object.others }}</p>
     {% endif %}
     
     <p class="filet">&nbsp;</p>

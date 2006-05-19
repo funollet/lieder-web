@@ -3,9 +3,10 @@
 
 {% block content %}
 
-<div class="articles-sections">      
 <h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
 {% filter lower %}{% trans "sections" %}{% endfilter %}</h1>
+
+<div class="contentsub">      
 <ul>
 {% for section in object_list %}
     <li>
@@ -14,8 +15,6 @@
 
 {% endfor %}
 </ul>
-
 </div>	
-
 
 {% endblock %}
