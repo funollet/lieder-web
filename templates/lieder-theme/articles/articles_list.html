@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
+<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
 {% filter lower %}{% trans "articles" %}{% endfilter %}</h1>
 
 <div id="contentsub">      
@@ -13,7 +13,8 @@
     <li>
     {% if article.image %}
         <a href="{{ article.get_absolute_url }}">
-        <img src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 /></a>
+        <img src={{ article.get_image_url }} alt="{{ article.name }}" height="{{ article.get_image_heigth }}"
+        width="{{ article.get_image_width }}" /></a>
     {% endif %}
     <a href="{{ article.get_absolute_url }}">{{ article.name }}</a>
     </li>

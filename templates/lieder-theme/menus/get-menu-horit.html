@@ -2,8 +2,11 @@
 
 {% get_menu "horitzontal" as menu_items %}
 
+<div id="globalNav">
+
 {% for item in menu_items %}
     <a href="{{ item.0 }}">{{ item.1 }}</a>{% if not forloop.last %} {% endif %}
 {% endfor %}
-<img src="/media-lieder/img/quadrodreta.png" alt="" width="328" height="13" align="absmiddle">
-    
+<img src="/media-lieder/img/quadrodreta.png" alt="quadrodreta" width="250" height="13">
+    </div>
+</div>

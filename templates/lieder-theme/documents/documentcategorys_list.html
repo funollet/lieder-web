@@ -5,13 +5,13 @@
 {% block content %}
 
 <h1 id="pageName">
-<img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
-{% filter lower %}{% trans "Documents" %}{% endfilter %}</h1>   
+<img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
+{% filter lower %}{% trans "Documents" %}{% endfilter %}</h1>
+
 <div id="contentsub">
 
 {% for categ in object_list %}
     <h2><a href="{{ categ.get_absolute_url }}">
-    <img src="/media-lieder/img/pictopremsa.png" alt="" width="21" height="21" border="0" align="absbottom" />
     {{ categ.catname }}</a></h2>
     {% if categ.catdescription %}
         {{ categ.catdescription }}

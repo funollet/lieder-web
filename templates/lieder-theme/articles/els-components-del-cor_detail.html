@@ -4,19 +4,20 @@
 
 {% block content %}
       
-<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
+<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="">
 {{ object.name|lower }}</h1>
 
 <div id="contentsub">
-{% if object.image %}
-<img src="{{ object.get_image_url }}" />
-<br>
-{% endif %}
-{{ object.body }}
+    {% if object.image %}
+    <img src="{{ object.get_image_url }}" />
+    <br>
+    {% endif %}
 
-<div class="singers-list">
-    {% include "singers/singers_emm_table" %}
-</div>
+    {{ object.body }}
+
+    <div class="singers-list">
+        {% include "singers/singers_emm_table" %}
+    </div>
 
 </div>
 {% endblock %}

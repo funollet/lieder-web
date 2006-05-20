@@ -4,21 +4,27 @@
 
 {% block content %}
 
-<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
+<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
 {{ object.secname|lower }}</h1>
 
-<div id="contentsub">      
-{% for article in object.get_article_list %}
-    {% if article.image %}
-        <a href="{{ article.get_absolute_url }}">
-        <img class="enregistraments" src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 />
-        </a>
-    {% endif %}
-    <h2><a href="{{ article.get_absolute_url }}">{{ article.name }}</a></h2>
-    {% if article.intro %}
-        {{ article.intro }}
-    {% endif %}
-{% endfor %}
+<div id="contentsub">
+<div id="taulaenregistrament">
 
+<table>
+{% for article in object.get_article_list %}
+    {% cycle <tr>,<!--><--> %}
+    <td>
+      <a href="#">
+      <img class="enregistraments" src="{{ article.get_image_url }}" alt="{{ article.name }}" 
+      onclick="MM_openBrWindow('{{ article.get_absolute_url }}','{{ article.name }}','width=400,height=420')" />
+      </a>
+      <h3>{{ article.name }}</h3>
+      {% if article.intro %}{{ article.intro }}{% endif %}
+    </td>
+    {% cycle <!--><-->,</tr> %}
+{% endfor %}
+</table>
+
+</div>
 </div>	
 {% endblock %}

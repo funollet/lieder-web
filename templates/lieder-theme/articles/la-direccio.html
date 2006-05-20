@@ -4,14 +4,15 @@
 
 {% block content %}
 
-<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="20" height="12" border="0" alt="">
+<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
 {{ object.secname|lower }}</h1>
 
 <div id="contentsub"> 
 {% for article in object.get_article_list %}
     <h2>{{ article.name }}</h2>
     {% if article.image %}
-        <img src={{ article.get_image_url }} alt="{{ article.name }}" height=80 width=80 />
+        <img src={{ article.get_image_url }} alt="{{ article.name }}" height="{{ article.get_image_heigth }}"
+        width="{{ article.get_image_width }}" />
     {% endif %}
     {{ article.body }}
 {% endfor %}
