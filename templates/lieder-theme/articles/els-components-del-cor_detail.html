@@ -1,16 +1,17 @@
 {% load i18n %}
 {% extends "base" %}
 
-
 {% block content %}
-      
-<h1 id="pageName"><img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
-{{ object.name|lower }}</h1>
+
+<h1 id="pageName">
+    <img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
+    {{ object.name|lower }}
+</h1>
 
 <div id="contentsub">
     {% if object.image %}
-    <img src="{{ object.get_image_url }} alt="{{ object.name }}" height="{{ object.get_image_height }}"
-    width="{{ object.get_image_width }}"" />
+    <img src="{{ object.get_image_url }}" alt="{{ object.name }}" 
+    height="{{ object.get_image_height }}" width="{{ object.get_image_width }}" />
     <br>
     {% endif %}
 
