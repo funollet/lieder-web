@@ -1,22 +1,24 @@
 {% load i18n %}
-{% extends "base" %}
+{% include "head" %}
 
 
-{% block content %}
-
-<h1 id="pageName">
-<img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
-{{ object.name|lower }}</h1>
-
-<div id="contentsub">
-
-    {% if object.image %}
-    <img src="{{ object.get_image_url }}" alt="{{ article.name }}" height="{{ article.get_image_height }}"
-    width="{{ article.get_image_width }}"/>
-    <br>
-    {% endif %}
-    
-    {{ object.body }}
-
+<div id="taulaeregistrament-unitat">
+    <div id="taulaeregistrament-unitat1">
+        <img src="/media-lieder/img/logoAB.png" width="390" height="65">
+    </div>
+    <div id="taulaeregistrament-unitat2">
+        <div id="taulaeregistrament-unitat5">
+        </div>
+    </div>
+    <div id="taulaeregistrament-unitat3">
+        {% if object.image %}
+        <img src="{{ object.get_image_url }}" alt="{{ object.name }}" height="{{ object.get_image_height }}"
+        width="{{ object.get_image_width }}"/>
+        {% endif %}
+    </div>
+    <div id="taulaeregistrament-unitat4">
+        <h3>{{ object.name }}</h3>
+        {{ object.body }}
+    </div>
 </div>
-{% endblock %}
+

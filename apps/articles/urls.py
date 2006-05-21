@@ -26,6 +26,8 @@ urlpatterns = patterns('lieder.apps.misc.views',
     # Every article in some sections renders an specific template.
     (r'^els-components-del-cor/(?P<slug>[\w-]+)/$', 'limited_object_detail',
         dict(art_dict, template_name='articles/els-components-del-cor_detail') ),
+    (r'^enregistraments-realizats/(?P<slug>[\w-]+)/$', 'limited_object_detail',
+        dict(art_dict, template_name='articles/enregistraments_detail') ),
     # Article default template.
     (r'^[\w-]+/(?P<slug>[\w-]+)/$', 'limited_object_detail', art_dict,),
 )

@@ -14,10 +14,9 @@
 {% for article in object.get_article_list %}
     {% cycle <tr>,<!--><--> %}
     <td>
-      <a href="#">
+      <a href="{{ article.get_absolute_url }}" onclick="window.open(this.href,'newwin', 'width=450,height=450'); return false;">
       <img class="enregistraments" src="{{ article.get_image_url }}" alt="{{ article.name }}"
-      height="{{ article.get_image_height }}" width="{{ article.get_image_width }}"
-      onclick="MM_openBrWindow('{{ article.get_absolute_url }}','{{ article.name }}','width=400,height=420')" />
+      height="{{ article.get_image_height }}" width="{{ article.get_image_width }}" />
       </a>
       <h3>{{ article.name }}</h3>
       {% if article.intro %}{{ article.intro }}{% endif %}
