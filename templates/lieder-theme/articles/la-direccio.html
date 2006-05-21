@@ -11,7 +11,7 @@
 {% for article in object.get_article_list %}
     <h2>{{ article.name }}</h2>
     {% if article.image %}
-        <img src={{ article.get_image_url }} alt="{{ article.name }}" height="{{ article.get_image_heigth }}"
+        <img src={{ article.get_image_url }} alt="{{ article.name }}" height="{{ article.get_image_height }}"
         width="{{ article.get_image_width }}" />
     {% endif %}
     {{ article.body }}

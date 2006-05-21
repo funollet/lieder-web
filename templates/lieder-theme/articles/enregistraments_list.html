@@ -15,7 +15,8 @@
     {% cycle <tr>,<!--><--> %}
     <td>
       <a href="#">
-      <img class="enregistraments" src="{{ article.get_image_url }}" alt="{{ article.name }}" 
+      <img class="enregistraments" src="{{ article.get_image_url }}" alt="{{ article.name }}"
+      height="{{ article.get_image_height }}" width="{{ article.get_image_width }}"
       onclick="MM_openBrWindow('{{ article.get_absolute_url }}','{{ article.name }}','width=400,height=420')" />
       </a>
       <h3>{{ article.name }}</h3>
