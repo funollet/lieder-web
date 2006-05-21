@@ -11,7 +11,7 @@ section_dict = {'app_label': 'articles', 'module_name': 'sections', 'slug_field'
 #
 urlpatterns = patterns('lieder.apps.misc.views',
     #(r'^$', 'limited_object_list', section_dict, ),
-    (r'^$', 'limited_object_detail', dict(art_dict, slug='la-nostra-historia') ),
+    (r'^$', 'limited_object_detail', dict(art_dict, slug='inici', template_name='articles/inici_detail') ),
     #
     # Special templates for some sections.
     (r'^enregistraments-realizats/$', 'limited_object_detail',
