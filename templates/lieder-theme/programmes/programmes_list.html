@@ -4,6 +4,7 @@
                 
 <h1>{% filter lower %}{% trans "Programmes" %}{% endfilter %}</h1>
 
+<div id="contentsub">
 <ul>
 {% for prog in object_list %}
 	<li>
@@ -14,4 +15,5 @@
 	</li>
 {% endfor %}
 </ul>
+</div>
                 {% endblock %}
