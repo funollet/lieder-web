@@ -5,8 +5,11 @@
 <div id="globalNav">
 
 {% for item in menu_items %}
-    <a href="{{ item.0 }}">{{ item.1 }}</a>{% if not forloop.last %} {% endif %}
+    {% ifequal request.path item.0 %} <span id="button-active">
+    {% else %} <span>
+    {% endifequal %}
+    <a href="{{ item.0 }}">{{ item.1 }}</a>{% if not forloop.last %} <br />{% endif %}
 {% endfor %}
-<img src="/media-lieder/img/quadrodreta.png" alt="quadrodreta" width="250" height="13">
-    </div>
+    </span>
+
 </div>

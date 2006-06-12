@@ -7,7 +7,12 @@
   
 <ul>
 {% for item in menu_items %}
-    <li><a href="{{ item.0 }}"><img src="/media-lieder/img/quadrattronja.png" width="15" height="9" />{{ item.1 }}</a></li>
+    {% ifequal request.path item.0 %} <li id="button-active">
+    {% else %} <li>
+    {% endifequal %}
+    <a href="{{ item.0 }}">
+    <img src="/media-lieder/img/quadrattronja.png" width="17" height="11" border="0" />{{ item.1 }}
+    </a></li>
 {% endfor %}
 </ul>
 

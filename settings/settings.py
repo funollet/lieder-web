@@ -62,6 +62,13 @@ MIDDLEWARE_CLASSES = (
     "django.middleware.doc.XViewMiddleware",
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.request",
+)
+
 ROOT_URLCONF = 'lieder.settings.urls'
 
 TEMPLATE_DIRS = (
@@ -81,14 +88,14 @@ INSTALLED_APPS = (
 )
 
 ABSOLUTE_URL_OVERRIDES = {
-    'articles.articles': lambda o: '/%s/%s' % (o.get_section().slug, o.slug) ,
-    'articles.sections': lambda o: '/%s' % o.slug ,
-    'concerts.concerts': lambda o: '/concerts/%s' % o.slug ,
-    'documents.documents': lambda o: '/documents/%s/%s' % (o.get_category().slug, o.slug) ,
-    'documents.documentcategorys': lambda o: '/documents/%s' % o.slug ,
-    'links.links': lambda o: '/links/%s/%s' % (o.get_category, o.slug) ,
-    'links.linkcategorys': lambda o: '/links/%s' % o.slug ,
-    'programmes.programmes': lambda o: '/programmes/%s' % o.slug ,
+    'articles.articles': lambda o: '/%s/%s/' % (o.get_section().slug, o.slug) ,
+    'articles.sections': lambda o: '/%s/' % o.slug ,
+    'concerts.concerts': lambda o: '/concerts/%s/' % o.slug ,
+    'documents.documents': lambda o: '/documents/%s/%s/' % (o.get_category().slug, o.slug) ,
+    'documents.documentcategorys': lambda o: '/documents/%s/' % o.slug ,
+    'links.links': lambda o: '/links/%s/%s/' % (o.get_category, o.slug) ,
+    'links.linkcategorys': lambda o: '/links/%s/' % o.slug ,
+    'programmes.programmes': lambda o: '/programmes/%s/' % o.slug ,
 }
 
 # LOCALE_PATHS = ( '/home/jordif/devel/djangos/locale/', )
