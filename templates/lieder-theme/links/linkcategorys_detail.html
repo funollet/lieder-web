@@ -3,12 +3,7 @@
 
 
 {% block content %}
-      
-<h1 id="pageName">
-<img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
-{% filter lower %}{% trans "Links" %}: {{ object.catname }}{% endfilter %}</h1>   
 
-<div id="contentsub">
 {% for link in object.get_link_list %}
 	<h2><a href="{{ link.url }}">{{ link.name }}</a></h2>
 	{% if link.description %}
@@ -16,6 +11,5 @@
 	{% endif %}
         <p class="filet">&nbsp;</p>
 {% endfor %}
-</div>
 
 {% endblock %}

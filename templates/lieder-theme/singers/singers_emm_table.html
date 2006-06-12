@@ -2,7 +2,7 @@
 
 {% get_singers as singers %}
 
-<div id="tablesingers">
+<div id="singers-list">
 <table>
 <tbody>
 <tr>
@@ -12,26 +12,26 @@
     <td><h2>{% trans "Basses" %}</h2></td>
 </tr>
 <tr>
-<td valign="top">
+<td valign="top"><p>
     {% for name in singers.sopranos%}
-        <p>{{ name }}</p>
+        {{ name }}<br/>
     {% endfor %}
-</td>
-<td valign="top">
+</p></td>
+<td valign="top"><p>
     {% for name in singers.altos %}
-        <p>{{ name }}</p>
+        {{ name }}<br/>
     {% endfor %}
-</td>
-<td valign="top">
+</p></td>
+<td valign="top"><p>
     {% for name in singers.tenors %}
-        <p>{{ name }}</p>
+        {{ name }}<br/>
     {% endfor %}
-</td>
-<td valign="top">
+</p></td>
+<td valign="top"><p>
     {% for name in singers.basses%}
-        <p>{{ name }}</p>
+        {{ name }}<br/>
     {% endfor %}
-</td>
+</p></td>
 <tr>
 </tbody></table>
 </div>

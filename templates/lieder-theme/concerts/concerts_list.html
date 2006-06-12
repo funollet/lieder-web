@@ -3,10 +3,22 @@
 
 {% block content %}
 
-<h1 id="pageName">
-<img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
-{% filter lower %}{% trans "Concerts" %}{% endfilter %}</h1>   
-<div id="contentsub">
+{% comment %}
+   <h2>Vin&ccedil;&agrave;</h2>
+   <strong>Diumenge 7 de maig de 2006</strong><br /> 
+   </p>a les 21h.
+Esgl&eacute;ia Saint Julien-Sainte Baselisse<br />
+  <em>Programa:</em> Cristianisme i judaisme a Am&egrave;rica<br />
+  <em>Director:</em>Xavier Puig 
+  
+  <p> <em>Organitza:</em> Associaci�de...<br />
+      <em>Patrocina:</em>Obra Social Caixa de Terrassa
+	
+ <p> <em>Preu:</em> 15 &euro;<br />
+      <em>Venda d'entrades:</em> Servicaixa 
+ <p class="filet">&nbsp;</p>
+{% endcomment %}
+
 
 {% for object in object_list %}
     {% if object.city %}
@@ -14,8 +26,21 @@
     {% endif %}
     
     {% if object.start_date %}
-        <p>{{ object.start_date}}</p>
+        <strong>{{ object.start_date}}</strong><br />
     {% endif %}
+    <p>
+    {% if object.programme %}
+        <em>{% trans "Programme" %}: </em>{{ object.programme }}<br />
+    {% endif %}
+    
+    {% if object.cycle %}
+        {{ object.cycle }}<br />
+    {% endif %}
+    {% if object.organization %}
+        {{ object.organization }}<br />
+    {% endif %}
+    </p>
+    
     
     <p>
     {% if object.auditorium %}
@@ -27,23 +52,11 @@
     </p>
     
     <p>
-    {% if object.programme %}
-        <em>{{ object.programme }}</em><br />
-    {% endif %}
-    {% if object.cycle %}
-        {{ object.cycle }}<br />
-    {% endif %}
-    {% if object.organization %}
-        {{ object.organization }}<br />
-    {% endif %}
-    </p>
-    
-    <p>
-    {% if object.tickets %}
-        <strong>{% trans "Tickets" %}: </strong>{{ object.tickets }}
-    {% endif %}
     {% if object.price %}
-        <strong>{% trans "Price" %}: </strong>{{ object.price }}
+        <em>{% trans "Price" %}: </em>{{ object.price }}<br />
+    {% endif %}
+    {% if object.tickets %}
+        <em>{% trans "Tickets" %}: </em>{{ object.tickets }}
     {% endif %}
     </p>
     
@@ -54,5 +67,4 @@
     <p class="filet">&nbsp;</p>
 {% endfor %}
 
-</div>
 {% endblock %}

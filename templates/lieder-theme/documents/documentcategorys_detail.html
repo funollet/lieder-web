@@ -2,12 +2,6 @@
 {% extends "base" %}
 
                 {% block content %}
-<h1 id="pageName">
-<img name="quadrattronja" src="/media-lieder/img/quadrattronja.png" width="15" height="9" alt="quadrattronja">
-{% filter lower %}{% trans "Documents" %}: {{ object.catname }}{% endfilter %}</h1>   
-
-<div id="contentsub">
-
 {% for docu in object.get_document_list %}
 	<h2><a href="{{ docu.get_file_url }}">
         <img class="documents" src="/media-lieder/img/pictopremsa.png" alt="pictopremsa" width="21" height="21" />
@@ -17,5 +11,4 @@
 	{% endif %}
         <p class="filet">&nbsp;</p>
 {% endfor %}
-</div>
                 {% endblock %}
