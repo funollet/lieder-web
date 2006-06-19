@@ -1,11 +1,11 @@
-from django.core import meta
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 from lieder.apps.misc import misc
 from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
 from lieder.apps.misc import mlang
 
 
-class Concert (meta.Model):
+class Concert (models.Model):
     pub_date = meta.DateTimeField (_('Unpublication date'), )
     
     default_start_date = meta.CharField (_('concert start date'), maxlength=200, )
@@ -88,30 +88,30 @@ class Concert (meta.Model):
         help_text = _('Name to be linked'),
         )
 
-    def __repr__ (self):
+    def __str__ (self):
         return ' :: '.join((self.default_city, self.default_start_date, ))
 
-    def _pre_save (self):
+    def save (self):
         from lieder.apps.misc import misc
         misc.parse_markup(self)
+        super(Concert, self).save()
 
     def get_absolute_url (self):
         pass
 
-    class META:
+    class Meta:
         verbose_name = _('concert')
         verbose_name_plural = _('concerts')
-        admin = meta.Admin(
-            list_display = ('default_city', 'default_auditorium', 'default_start_date',
-                            'default_cycle', 'default_programme'),
-            list_filter = ('default_city', 'default_cycle', 'default_programme'),
-            )
+    class Admin:
+        list_display = ('default_city', 'default_auditorium', 'default_start_date',
+                        'default_cycle', 'default_programme')
+        list_filter = ('default_city', 'default_cycle', 'default_programme')
 
 
 class start_date (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for start_date')
         verbose_name_plural = _('translations for start_dates')
 
@@ -119,56 +119,56 @@ class start_date (CharTranslation):
 class city (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for city')
         verbose_name_plural = _('translations for citys')
 
 class auditorium (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for auditorium')
         verbose_name_plural = _('translations for auditoriums')
 
 class address (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for address')
         verbose_name_plural = _('translations for address')
 
 class cycle (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for cycle')
         verbose_name_plural = _('translations for cycles')
 
 class programme (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for programme')
         verbose_name_plural = _('translations for programmes')
 
 class tickets (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for tickets')
         verbose_name_plural = _('translations for tickets')
 
 class price (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for price')
         verbose_name_plural = _('translations for prices')
 
 class organization (CharTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for organization')
         verbose_name_plural = _('translations for organizations')
 
@@ -176,6 +176,6 @@ class others (TextTranslation):
     parent = meta.ForeignKey(Concert, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for others')
         verbose_name_plural = _('translations for others')

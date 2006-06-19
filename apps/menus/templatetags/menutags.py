@@ -1,5 +1,5 @@
-from django.core import template
-from django.models.menus import menus
+from django import template
+from lieder.apps.menus.models import menus
 
 
 class MenuNode (template.Node):
@@ -9,11 +9,11 @@ class MenuNode (template.Node):
 
     def render (self, context):
         try:
-            m = menus.get_object(name__exact=self.menu)
+            m = Menus.objects.filter(name=self.menu)
         except:
             return ''
         
-        context[self.var_name] = [(it.get_link(), it.name()) for it in m.get_menuitem_list()]
+        context[self.var_name] = [(it.get_link(), it.name()) for it in m.menuitem_set.all()]
         return ''
 
 

@@ -1,9 +1,7 @@
 from django.conf.urls.defaults import *
+from lieder.apps.programmes import programme
 
-info_dict = {
-    'app_label': 'programmes',
-    'module_name': 'programmes',
-}
+info_dict = { 'queryset': Programme.objects.all() }
 
 # object_id
 urlpatterns = patterns('django.views.generic.list_detail',

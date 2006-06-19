@@ -1,5 +1,5 @@
 {% load i18n %}
-{% extends "base" %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -12,7 +12,7 @@
     {{ object.body }}
 
     <div class="singers-list">
-        {% include "singers/singers_emm_table" %}
+        {% include "singers/singers_emm_table.html" %}
     </div>
 
 {% endblock %}

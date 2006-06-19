@@ -1,4 +1,4 @@
-from django.core import meta
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 from lieder.apps.misc import misc
 from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
@@ -13,7 +13,7 @@ STATUS_CHOICES = (
     )
 
 
-class Section (meta.Model):
+class Section (models.Model):
     default_secname = meta.CharField (_('name'), maxlength=200, )
 
     def secname(self):
@@ -29,12 +29,13 @@ class Section (meta.Model):
     pub_date = meta.DateTimeField (_('publication date'), )
 
         
-    class META:
+    class Meta:
         verbose_name = _('section')
         verbose_name_plural = _('sections')
-        admin = meta.Admin()
-        
-    def __repr__ (self):
+    class Admin:
+        pass
+    
+    def __str__ (self):
         return self.default_secname
     
     def get_absolute_url (self):
@@ -45,13 +46,13 @@ class Section (meta.Model):
 class SecName (CharTranslation):
     parent = meta.ForeignKey(Section, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
 
 
-class Article (meta.Model):
+class Article (models.Model):
     
     status = meta.CharField (_('status'), maxlength=3, 
         choices=STATUS_CHOICES,
@@ -102,13 +103,13 @@ class Article (meta.Model):
         )
 
     
-    class META:
+    class Meta:
         verbose_name = _('article')
         verbose_name_plural = _('articles')
-        admin = meta.Admin (
-            list_display = ('default_name', 'section', 'pub_date',),
-            list_filter = ('status', 'section',),
-            fields = (
+    class Admin:
+        list_display = ('default_name', 'section', 'pub_date',)
+        list_filter = ('status', 'section',)
+        fields = (
             (None, {
             'fields': (('default_name', 'section'), ('status',),)}
              ),
@@ -126,16 +127,16 @@ class Article (meta.Model):
             'classes': 'collapse',
             'fields': ('slug', 'image',),
             }),
-            ),            
-            )
+        )
         
 
-    def __repr__ (self):
+    def __str__ (self):
         return self.default_name
     
-    def _pre_save (self):
+    def save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+        super(Article, self).save()
 
     def get_absolute_url (self):
         pass
@@ -144,7 +145,7 @@ class Article (meta.Model):
 class Name (CharTranslation):
     parent = meta.ForeignKey(Article, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
@@ -152,7 +153,7 @@ class Intro (TextTranslation):
     parent = meta.ForeignKey(Article, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for introduction')
         verbose_name_plural = _('translations for introductions')
         
@@ -160,6 +161,6 @@ class Body (TextTranslation):
     parent = meta.ForeignKey(Article, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for Body')
         verbose_name_plural = _('translations for Bodys')

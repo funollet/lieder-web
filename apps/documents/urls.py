@@ -1,7 +1,8 @@
 from django.conf.urls.defaults import *
+from lieder.apps.documents.models import Document, DocumentCategory
 
-obj_dict = {'app_label': 'documents', 'module_name': 'documents',}
-categ_dict = {'app_label': 'documents', 'module_name': 'documentcategorys',}
+obj_dict = { 'queryset': Document.objects.all() }
+categ_dict = { 'queryset': DocumentCatergory.objects.all() }
 categ_dict_slug = dict(categ_dict, slug_field='slug',)
 
 urlpatterns = patterns('django.views.generic.list_detail',

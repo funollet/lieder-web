@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 
-link_dict = {'app_label': 'links', 'module_name': 'links',}
-categ_dict = {'app_label': 'links', 'module_name': 'linkcategorys',}
+link_dict = {'queryset': Link.objects.all() }
+categ_dict = {'queryset': LinkCategory.objects.all() }
 categ_dict_slug = dict(categ_dict, slug_field='slug')
 
 urlpatterns = patterns('django.views.generic.list_detail',

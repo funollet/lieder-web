@@ -1,5 +1,5 @@
-from django.core import template
-from django.models.singers import singers, VOICE_CHOICES
+from django import template
+from lieder.apps.singers.models import singers, VOICE_CHOICES
 
 class SingersNode (template.Node):
     def __init__ (self, var_name):
@@ -9,8 +9,8 @@ class SingersNode (template.Node):
         try:
             sngr= {}
             voice_keys = [v[0] for v in VOICE_CHOICES]
-            for voice in voice_keys:
-                sngr[voice] = [n.name for n in singers.get_list(voice__exact=voice)]
+            for one_voice in voice_keys:
+                sngr[one_voice] = [n.name for n in singers.filter(voice=one_voice)]
         except:
             return ''
             

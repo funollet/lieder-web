@@ -50,14 +50,15 @@ SECRET_KEY = '-k_&x5jqt4&9=)v2n66eloas%2b48og-fr%qg$*x33r@^%2@=i'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.core.template.loaders.filesystem.load_template_source',
-    'django.core.template.loaders.app_directories.load_template_source',
-#     'django.core.template.loaders.eggs.load_template_source',
+    'django.template.loaders.filesystem.load_template_source',
+    'django.template.loaders.app_directories.load_template_source',
+    #'django.template.loaders.eggs.load_template_source',
 )
 
 MIDDLEWARE_CLASSES = (
-    "django.middleware.sessions.SessionMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.doc.XViewMiddleware",
 )
@@ -76,6 +77,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     'django.contrib.admin',
     'lieder.apps.misc',
     'lieder.apps.articles',
@@ -106,3 +109,4 @@ LANGUAGES = (
     ('fr', 'French'),
 )
 MARKUP = 'docutils'     # 'docutils', 'markdown' or 'textile'
+INTERNAL_IPS = ('127.0.0.1',)

@@ -1,11 +1,11 @@
-from django.core import meta
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 from lieder.apps.misc import misc
 from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
 from lieder.apps.misc import mlang
 
 
-class Programme (meta.Model):
+class Programme (models.Model):
     default_name = meta.CharField (_('name'), maxlength=200, )
 
     def name(self):
@@ -66,22 +66,23 @@ class Programme (meta.Model):
         )
 
 
-    def _pre_save (self):
+    def save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+        super(Programme, self).save()
         
-    def __repr__ (self):
+    def __str__ (self):
         return self.default_name
 
     def get_absolute_url (self):
         pass
 
 
-    class META:
+    class Meta:
         verbose_name = _('programme')
         verbose_name_plural = _('programmes') 
-        admin = meta.Admin(
-            fields=(
+    class Admin:
+        fields=(
             (None, {'fields': ('default_name',)}),
             (_('Introduction'), {'fields': ('default_intro_markup',),
                         'classes': 'collapse',}),
@@ -91,13 +92,12 @@ class Programme (meta.Model):
                         'classes': 'collapse',}),
             (_('Advanced'), {'fields': ('slug',),
                           'classes': ('collapse',)} ),
-            ),
-        )
+            )
 
 class Name (CharTranslation):
     parent = meta.ForeignKey(Programme, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for name')
         verbose_name_plural = _('translations for names')
 
@@ -105,7 +105,7 @@ class Intro (TextTranslation):
     parent = meta.ForeignKey(Programme, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for introduction')
         verbose_name_plural = _('translations for introduction')
 
@@ -113,7 +113,7 @@ class First_part (TextTranslation):
     parent = meta.ForeignKey(Programme, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for First_part')
         verbose_name_plural = _('translations for First_parts')
 
@@ -121,7 +121,7 @@ class Second_part (TextTranslation):
     parent = meta.ForeignKey(Programme, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for Second_part')
         verbose_name_plural = _('translations for Second_parts')
 
@@ -129,6 +129,6 @@ class Footer (TextTranslation):
     parent = meta.ForeignKey(Programme, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for Footer')
         verbose_name_plural = _('translations for Footers')

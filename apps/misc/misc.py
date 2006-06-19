@@ -30,10 +30,10 @@ def parse_markup (obj):
 
     TAIL='_markup'      # Suffix for names of attributes containing markup.
 
-    from django.conf.settings import MARKUP
+    from django.conf import settings
 
     # Choose a markup parser.
-    if MARKUP=='docutils':
+    if settings.MARKUP=='docutils':
         from docutils.core import publish_parts
         # commandline troubleshooting
         # echo ç | rst2html -o ascii --output-encoding-error-handler xmlcharrefreplace -
@@ -43,10 +43,10 @@ def parse_markup (obj):
 #             'output_encoding': 'unicode',
 #             'output-encoding-error-handler': 'xmlcharrefreplace'}
         parse = lambda s: publish_parts (source=s, writer_name="html4css1")["fragment"].encode('utf-8')
-    elif MARKUP == 'markdown':
+    elif settings.MARKUP == 'markdown':
         import markdown
         parse = lambda s: markdown.markdown(s)
-    elif MARKUP == 'textile':
+    elif settings.MARKUP == 'textile':
         import textile
         parse = lambda s: textile.textile(s)
     else:

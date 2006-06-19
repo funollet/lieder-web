@@ -1,10 +1,10 @@
-from django.core import meta
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 from lieder.apps.misc import misc
 from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
 from lieder.apps.misc import mlang
 
-class DocumentCategory (meta.Model):
+class DocumentCategory (models.Model):
 #     name = meta.CharField (_('name'),
 #         maxlength=200,
 #         )
@@ -39,24 +39,24 @@ class DocumentCategory (meta.Model):
         help_text = _('Name to be linked'),
         )
 
-    class META:
+    class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('document categories')
         ordering = ['pub_date']
-        admin = meta.Admin(
-            fields = (
+    class Admin:
+        fields = (
             (None, {'fields': ('default_catname', 'default_catdescription_markup', 'pub_date',),}),
             (_('Advanced'), {'fields': ('slug',), 'classes': 'collapse',}),
-            ),
-            )
+        )
 
 
-    def __repr__ (self):
+    def __str__ (self):
         return self.default_catname
 
-    def _pre_save (self):
+    def save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+        super(DocumentCategory, self).save()
 
     def get_absolute_url (self):
         pass
@@ -66,7 +66,7 @@ class CatName (CharTranslation):
     parent = meta.ForeignKey(DocumentCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
        
-    class META:
+    class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
@@ -74,7 +74,7 @@ class CatDescription (TextTranslation):
     parent = meta.ForeignKey(DocumentCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
        
-    class META:
+    class Meta:
         verbose_name = _('translation for Description')
         verbose_name_plural = _('translations for Descriptions')
 
@@ -82,7 +82,7 @@ class CatDescription (TextTranslation):
 
 
 
-class Document (meta.Model):
+class Document (models.Model):
 #     name = meta.CharField (_('document short name'), maxlength=200,
 #         )
 #     description = meta.TextField (_('description'), editable=False,)
@@ -122,29 +122,29 @@ class Document (meta.Model):
         )
 
 
-    class META:
+    class Meta:
         verbose_name = _('document')
         verbose_name_plural = _('documents')
         ordering = ['pub_date']
-        admin = meta.Admin (
-            list_display = ('default_name', 'category',),
-            list_filter = ('category',),
-            search_fields = ('default_name',),
-            fields = (
+    class Admin:
+        list_display = ('default_name', 'category',)
+        list_filter = ('category',)
+        search_fields = ('default_name',)
+        fields = (
             (None, {'fields': ('file',)}),
             (None, {'fields': (('default_name','category',), 'default_description_markup',
                                'pub_date',),}),
             (_('Advanced'), {'fields': ('slug',), 'classes': 'collapse',}),
-            ),
-            )
+        )
 
 
-    def __repr__ (self):
+    def __str__ (self):
         return self.default_name
     
-    def _pre_save (self):
+    def save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+        super(Document, self).save()
 
     def get_absolute_url (self):
         pass
@@ -153,7 +153,7 @@ class Document (meta.Model):
 class Name (CharTranslation):
     parent = meta.ForeignKey(Document, edit_inline=meta.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
-    class META:
+    class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
@@ -161,6 +161,6 @@ class Description (TextTranslation):
     parent = meta.ForeignKey(Document, edit_inline=meta.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
-    class META:
+    class Meta:
         verbose_name = _('translation for Description')
         verbose_name_plural = _('translations for Descriptions')
