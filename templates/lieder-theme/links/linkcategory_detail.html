@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{% for link in object.get_link_list %}
+{% for link in object.link_set.all %}
 	<h2><a href="{{ link.url }}">{{ link.name }}</a></h2>
 	{% if link.description %}
             <p>{{ link.description }}</p>

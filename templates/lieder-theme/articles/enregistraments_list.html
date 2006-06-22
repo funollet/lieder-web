@@ -8,7 +8,7 @@
 <div id="taulaenregistrament">
 
 <table>
-{% for article in object.get_article_list %}
+{% for article in object_list %}
     {% cycle <tr>,<!--><--> %}
     <td>
       <a href="{{ article.get_absolute_url }}" onclick="window.open(this.href,'newwin', 'width=450,height=450'); return false;">

@@ -11,8 +11,8 @@ VOICE_CHOICES = (
 
 
 class Singer (models.Model):
-    name = meta.CharField(_('name'), maxlength=200, )
-    voice = meta.CharField(_('voice'), maxlength=200,
+    name = models.CharField(_('name'), maxlength=200, )
+    voice = models.CharField(_('voice'), maxlength=200,
         choices = VOICE_CHOICES, )
 
     def __str__(self):

@@ -6,8 +6,8 @@ from lieder.apps.misc import mlang
 
 
 class Menu (models.Model):
-    name = meta.CharField (_('name'), maxlength=200, )
-    pub_date = meta.DateTimeField (_('publication date'), )
+    name = models.CharField (_('name'), maxlength=200, )
+    pub_date = models.DateTimeField (_('publication date'), )
 
     class Meta:
         verbose_name = _('menu')
@@ -23,19 +23,18 @@ class Menu (models.Model):
 
 
 class MenuItem (models.Model):
-#     name = meta.CharField (_('item short name'), maxlength=200, )
-    default_name = meta.CharField (_('name'), maxlength=200, )
+    default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
         from lieder.apps.misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
     
-    url = meta.URLField (_('url'), verify_exists=False, )
+    url = models.URLField (_('url'), verify_exists=False, )
     # Hidden field that stores a relative link.
-    relative_url = meta.CharField (_('local url'), maxlength=200, blank=True, editable=False )
-    menu = meta.ForeignKey ( Menu, verbose_name=_('menu'), )
-    pub_date = meta.DateTimeField (_('publication date'), )
+    relative_url = models.CharField (_('local url'), maxlength=200, blank=True, editable=False )
+    menu = models.ForeignKey ( Menu, verbose_name=_('menu'), )
+    pub_date = models.DateTimeField (_('publication date'), )
 
     class Meta:
         verbose_name = _('menu item')
@@ -72,7 +71,7 @@ class MenuItem (models.Model):
 
 
 class Name (CharTranslation):
-    parent = meta.ForeignKey(MenuItem, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(MenuItem, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
     class Meta:
         verbose_name = _('translation for Name')

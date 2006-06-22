@@ -14,19 +14,19 @@ STATUS_CHOICES = (
 
 
 class Section (models.Model):
-    default_secname = meta.CharField (_('name'), maxlength=200, )
+    default_secname = models.CharField (_('name'), maxlength=200, )
 
     def secname(self):
         from lieder.apps.misc import mlang
         return mlang.get_text(self, 'secname')
     secname.short_description = _('name')
     
-    slug = meta.SlugField (_('permalink'),
+    slug = models.SlugField (_('permalink'),
         prepopulate_from = ('default_secname',),
         unique = True,
         help_text = _('Name to be linked'),
     )
-    pub_date = meta.DateTimeField (_('publication date'), )
+    pub_date = models.DateTimeField (_('publication date'), )
 
         
     class Meta:
@@ -44,32 +44,38 @@ class Section (models.Model):
 
 
 class SecName (CharTranslation):
-    parent = meta.ForeignKey(Section, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(Section, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
     class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
 
+    
+class PublicStatusManager (models.Manager):
+    def get_query_set (self):
+        return super(PublicStatusManager, self).get_query_set().filter(status='pbl')
+    
+
 
 class Article (models.Model):
     
-    status = meta.CharField (_('status'), maxlength=3, 
+    status = models.CharField (_('status'), maxlength=3, 
         choices=STATUS_CHOICES,
         default='drf',
         )
-    section = meta.ForeignKey (Section,
+    section = models.ForeignKey (Section,
         verbose_name=_('section'),)
  
-    default_name = meta.CharField (_('name'), maxlength=200, )
+    default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
         from lieder.apps.misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
     
-    default_intro= meta.TextField (_('introduction'), editable=False,)
-    default_intro_markup = meta.TextField (_('introduction'), 
+    default_intro= models.TextField (_('introduction'), editable=False,)
+    default_intro_markup = models.TextField (_('introduction'), 
         blank=True,
         help_text = misc.MARKUP_HELP,
         )
@@ -79,8 +85,8 @@ class Article (models.Model):
         return mlang.get_text(self, 'intro')
     intro.short_description = _('intro')
 
-    default_body= meta.TextField (_('body'), editable=False,)
-    default_body_markup = meta.TextField (_('body'), 
+    default_body= models.TextField (_('body'), editable=False,)
+    default_body_markup = models.TextField (_('body'), 
         blank=True,
         help_text = misc.MARKUP_HELP,
         )
@@ -91,18 +97,17 @@ class Article (models.Model):
     body.short_description = _('body')
 
 
-    pub_date = meta.DateTimeField (_('publication date'))
-    slug = meta.SlugField (_('permalink'),
+    pub_date = models.DateTimeField (_('publication date'))
+    slug = models.SlugField (_('permalink'),
         prepopulate_from = ('default_name',),
         unique = True,
         help_text = _('Name to be linked'),
         )
-    image = meta.ImageField (_('image'),
+    image = models.ImageField (_('image'),
         upload_to = 'articles',
         blank = True,
         )
 
-    
     class Meta:
         verbose_name = _('article')
         verbose_name_plural = _('articles')
@@ -141,16 +146,20 @@ class Article (models.Model):
     def get_absolute_url (self):
         pass
 
+    objects = models.Manager()
+    public_objects = PublicStatusManager()
+    
+
 
 class Name (CharTranslation):
-    parent = meta.ForeignKey(Article, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(Article, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
     class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
 class Intro (TextTranslation):
-    parent = meta.ForeignKey(Article, edit_inline=meta.TABULAR, num_in_admin=1,
+    parent = models.ForeignKey(Article, edit_inline=models.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
     class Meta:
@@ -158,7 +167,7 @@ class Intro (TextTranslation):
         verbose_name_plural = _('translations for introductions')
         
 class Body (TextTranslation):
-    parent = meta.ForeignKey(Article, edit_inline=meta.TABULAR, num_in_admin=1,
+    parent = models.ForeignKey(Article, edit_inline=models.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
     class Meta:

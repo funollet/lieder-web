@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from lieder.apps.singers import singer
+from lieder.apps.singers import Singer
 
 info_dict = { 'queryset': Singer.objects.all() }
 

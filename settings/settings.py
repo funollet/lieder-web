@@ -91,14 +91,14 @@ INSTALLED_APPS = (
 )
 
 ABSOLUTE_URL_OVERRIDES = {
-    'articles.articles': lambda o: '/%s/%s/' % (o.get_section().slug, o.slug) ,
-    'articles.sections': lambda o: '/%s/' % o.slug ,
-    'concerts.concerts': lambda o: '/concerts/%s/' % o.slug ,
-    'documents.documents': lambda o: '/documents/%s/%s/' % (o.get_category().slug, o.slug) ,
-    'documents.documentcategorys': lambda o: '/documents/%s/' % o.slug ,
-    'links.links': lambda o: '/links/%s/%s/' % (o.get_category, o.slug) ,
-    'links.linkcategorys': lambda o: '/links/%s/' % o.slug ,
-    'programmes.programmes': lambda o: '/programmes/%s/' % o.slug ,
+    'articles.article': lambda o: '/%s/%s/' % (o.section.slug, o.slug) ,
+    'articles.section': lambda o: '/%s/' % o.slug ,
+    'concerts.concert': lambda o: '/concerts/%s/' % o.slug ,
+    'documents.document': lambda o: '/documents/%s/%s/' % (o.category.slug, o.slug) ,
+    'documents.documentcategory': lambda o: '/documents/%s/' % o.slug ,
+    'links.link': lambda o: '/links/%s/%s/' % (o.get_category, o.slug) ,
+    'links.linkcategory': lambda o: '/links/%s/' % o.slug ,
+    'programmes.programme': lambda o: '/programmes/%s/' % o.slug ,
 }
 
 # LOCALE_PATHS = ( '/home/jordif/devel/djangos/locale/', )

@@ -19,13 +19,13 @@ del _setup
 
 class CharTranslation(models.Model):
     if len(CHOICES) == 1:
-        language = meta.CharField(_('language'), maxlength=4, choices=CHOICES,
+        language = models.CharField(_('language'), maxlength=4, choices=CHOICES,
                                   default=CHOICES[0][0], db_index=True)
     else:
-        language = meta.CharField(_('language'), maxlength=4, choices=CHOICES,
+        language = models.CharField(_('language'), maxlength=4, choices=CHOICES,
                                   db_index=True)
 
-    text = meta.CharField(_('text'), maxlength=255, core=True)
+    text = models.CharField(_('text'), maxlength=255, core=True)
 
     def __str__(self):
         lang = self.language
@@ -37,31 +37,27 @@ class CharTranslation(models.Model):
 
 class TextTranslation(models.Model):
     if len(CHOICES) == 1:
-        language = meta.CharField(_('language'), maxlength=4, choices=CHOICES, default=CHOICES[0][0], db_index=True)
+        language = models.CharField(_('language'), maxlength=4, choices=CHOICES, default=CHOICES[0][0],
+            db_index=True)
     else:
-        language = meta.CharField(_('language'), maxlength=4, choices=CHOICES, db_index=True)
+        language = models.CharField(_('language'), maxlength=4, choices=CHOICES, db_index=True)
 
-    text = meta.TextField(_('text raw'), editable=False, blank=True,)
-    text_markup = meta.TextField(_('text markup'), core=True,
+    text = models.TextField(_('text raw'), editable=False, blank=True,)
+    text_markup = models.TextField(_('text markup'), core=True,
         help_text = misc.MARKUP_HELP,)
 
     def __str__(self):
         lang = self.language
         return '[%s] %s' % (self.language, self.text_markup)
 
-    def _pre_save (self):
+    def save (self):
         from lieder.apps.misc import misc
         misc.parse_markup (self)
+        super (TextTranslation, self).save()
 
 
     class Meta:
         unique_together = (('parent', 'language'),)
-#   class Admin:
-#             fields = (
-#             (None, {'fields': ('text_markup', 'language',),}),
-#         )
-
-
 
 
 
@@ -77,11 +73,13 @@ def get_text(obj, field, table=None, language=None, fallback=None):
         ret = getattr(obj, 'default_%s' % field)
     else:
         if table is None:
-            getobj = getattr(obj, 'get_%s' % field)
+            #getobj = getattr(obj, 'get_%s' % field)
+            getobj = getattr(obj, '%s_set' % field)
         else:
-            getobj = getattr(obj, 'get_%s' % table.lower())
+            #getobj = getattr(obj, 'get_%s' % table.lower())
+            getobj = getattr(obj, '%s_set' % table.lower())
         try:
-            ret = getobj(language__exact=language).text
+            ret = getobj.filter(language__exact=language).get().text
         except ObjectDoesNotExist, err:
             pass
 
@@ -97,7 +95,7 @@ def get_text(obj, field, table=None, language=None, fallback=None):
 
 
 
-
+# not magic-removal-PROOF
 def translated_for(obj, field, table=None, add_default=True):
     if table is not None:
         fld = table.lower()

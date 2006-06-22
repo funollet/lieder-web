@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
                 {% block content %}
-{% for docu in object.get_document_list %}
+{% for docu in object.document_set.all %}
 	<h2><a href="{{ docu.get_file_url }}">
         <img class="documents" src="/media-lieder/img/pictopremsa.png" alt="pictopremsa" width="21" height="21" />
         {{ docu.name }}</a></h2>

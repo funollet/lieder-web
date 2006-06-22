@@ -5,24 +5,24 @@ from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
 from lieder.apps.misc import mlang
 
 class DocumentCategory (models.Model):
-#     name = meta.CharField (_('name'),
+#     name = models.CharField (_('name'),
 #         maxlength=200,
 #         )
-#     description = meta.TextField (_('description'), editable=False,)
-#     description_markup = meta.TextField (_('description'), 
+#     description = models.TextField (_('description'), editable=False,)
+#     description_markup = models.TextField (_('description'), 
 #         blank=True,
 #         help_text = misc.MARKUP_HELP,
 #         )
 
-    default_catname = meta.CharField (_('name'), maxlength=200, )
+    default_catname = models.CharField (_('name'), maxlength=200, )
 
     def catname(self):
         from lieder.apps.misc import mlang
         return mlang.get_text(self, 'catname')
     catname.short_description = _('name')
     
-    default_catdescription= meta.TextField (_('description'), editable=False,)
-    default_catdescription_markup = meta.TextField (_('description'), 
+    default_catdescription= models.TextField (_('description'), editable=False,)
+    default_catdescription_markup = models.TextField (_('description'), 
         blank=True,
         help_text = misc.MARKUP_HELP,
         )
@@ -32,8 +32,8 @@ class DocumentCategory (models.Model):
         return mlang.get_text(self, 'catdescription')
     catdescription.short_description = _('description')
 
-    pub_date = meta.DateTimeField (_('publication date'), )
-    slug = meta.SlugField (_('permalink'),
+    pub_date = models.DateTimeField (_('publication date'), )
+    slug = models.SlugField (_('permalink'),
         unique=True,
         prepopulate_from=('default_catname',),
         help_text = _('Name to be linked'),
@@ -63,7 +63,7 @@ class DocumentCategory (models.Model):
     
 
 class CatName (CharTranslation):
-    parent = meta.ForeignKey(DocumentCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(DocumentCategory, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
        
     class Meta:
@@ -71,7 +71,7 @@ class CatName (CharTranslation):
         verbose_name_plural = _('translations for Names')
 
 class CatDescription (TextTranslation):
-    parent = meta.ForeignKey(DocumentCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(DocumentCategory, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
        
     class Meta:
@@ -83,21 +83,21 @@ class CatDescription (TextTranslation):
 
 
 class Document (models.Model):
-#     name = meta.CharField (_('document short name'), maxlength=200,
+#     name = models.CharField (_('document short name'), maxlength=200,
 #         )
-#     description = meta.TextField (_('description'), editable=False,)
-#     description_markup = meta.TextField (_('description'), 
+#     description = models.TextField (_('description'), editable=False,)
+#     description_markup = models.TextField (_('description'), 
 #         help_text = misc.MARKUP_HELP, blank=True, )
     
-    default_name = meta.CharField (_('name'), maxlength=200, )
+    default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
         from lieder.apps.misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
     
-    default_description= meta.TextField (_('description'), editable=False,)
-    default_description_markup = meta.TextField (_('description'), 
+    default_description= models.TextField (_('description'), editable=False,)
+    default_description_markup = models.TextField (_('description'), 
         blank=True,
         help_text = misc.MARKUP_HELP,
         )
@@ -107,16 +107,16 @@ class Document (models.Model):
         return mlang.get_text(self, 'description')
     description.short_description = _('description')
 
-    category = meta.ForeignKey ( DocumentCategory,
+    category = models.ForeignKey ( DocumentCategory,
         verbose_name=_('category'),
         blank = True,
         )
 
-    file = meta.FileField (_('document'), upload_to='documents',
+    file = models.FileField (_('document'), upload_to='documents',
         blank = True,
         )
-    pub_date = meta.DateTimeField (_('publication date'), )
-    slug = meta.SlugField (_('permalink'),
+    pub_date = models.DateTimeField (_('publication date'), )
+    slug = models.SlugField (_('permalink'),
         prepopulate_from = ('default_name',),
         unique = True,
         )
@@ -151,14 +151,14 @@ class Document (models.Model):
 
 
 class Name (CharTranslation):
-    parent = meta.ForeignKey(Document, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(Document, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
     class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
 class Description (TextTranslation):
-    parent = meta.ForeignKey(Document, edit_inline=meta.TABULAR, num_in_admin=1,
+    parent = models.ForeignKey(Document, edit_inline=models.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
     class Meta:

@@ -7,7 +7,7 @@ from lieder.apps.misc import mlang
 
 class LinkCategory (models.Model):
 
-    default_catname = meta.CharField (_('name'), maxlength=200, )
+    default_catname = models.CharField (_('name'), maxlength=200, )
 
     def catname(self):
         from lieder.apps.misc import mlang
@@ -15,8 +15,8 @@ class LinkCategory (models.Model):
     catname.short_description = _('name')
     
     
-    default_catdescription= meta.TextField (_('description'), editable=False,)
-    default_catdescription_markup = meta.TextField (_('description'), 
+    default_catdescription= models.TextField (_('description'), editable=False,)
+    default_catdescription_markup = models.TextField (_('description'), 
         blank=True,
         help_text = misc.MARKUP_HELP,
         )
@@ -27,8 +27,8 @@ class LinkCategory (models.Model):
     catdescription.short_description = _('description')
     
 
-    pub_date = meta.DateTimeField (_('publication date'), )
-    slug = meta.SlugField (_('permalink'),
+    pub_date = models.DateTimeField (_('publication date'), )
+    slug = models.SlugField (_('permalink'),
         unique=True,
         prepopulate_from=('default_catname',),
         help_text = _('Name to be linked'),
@@ -61,14 +61,14 @@ class LinkCategory (models.Model):
     
 
 class CatName (CharTranslation):
-    parent = meta.ForeignKey(LinkCategory, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(LinkCategory, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
     class Meta:
         verbose_name = _('translation for name')
         verbose_name_plural = _('translations for names')
 
 class CatDescription (TextTranslation):
-    parent = meta.ForeignKey(LinkCategory, edit_inline=meta.TABULAR, num_in_admin=1,
+    parent = models.ForeignKey(LinkCategory, edit_inline=models.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
     class Meta:
@@ -81,15 +81,15 @@ class CatDescription (TextTranslation):
 
 class Link (models.Model):
 
-    default_name = meta.CharField (_('name'), maxlength=200, )
+    default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
         from lieder.apps.misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
 
-    default_description = meta.TextField (_('description'), editable=False,)
-    default_description_markup = meta.TextField (_('description'), 
+    default_description = models.TextField (_('description'), editable=False,)
+    default_description_markup = models.TextField (_('description'), 
         blank=True,
         help_text = misc.MARKUP_HELP,
         )
@@ -99,14 +99,14 @@ class Link (models.Model):
         return mlang.get_text(self, 'description')
     description.short_description = _('description')
  
-    category = meta.ForeignKey ( LinkCategory,
+    category = models.ForeignKey ( LinkCategory,
         verbose_name=_('category'),
         blank = True,
         )
 
-    url = meta.URLField (_('url'), verify_exists=False)
-    pub_date = meta.DateTimeField (_('publication date'), )
-    slug = meta.SlugField (_('permalink'),
+    url = models.URLField (_('url'), verify_exists=False)
+    pub_date = models.DateTimeField (_('publication date'), )
+    slug = models.SlugField (_('permalink'),
         prepopulate_from = ('default_name',),
         unique = True,
         )
@@ -141,14 +141,14 @@ class Link (models.Model):
         pass
 
 class Name (CharTranslation):
-    parent = meta.ForeignKey(Link, edit_inline=meta.TABULAR, num_in_admin=1, 
+    parent = models.ForeignKey(Link, edit_inline=models.TABULAR, num_in_admin=1, 
        max_num_in_admin=len(CHOICES))
     class Meta:
         verbose_name = _('translation for Name')
         verbose_name_plural = _('translations for Names')
 
 class Description (TextTranslation):
-    parent = meta.ForeignKey(Link, edit_inline=meta.TABULAR, num_in_admin=1,
+    parent = models.ForeignKey(Link, edit_inline=models.TABULAR, num_in_admin=1,
         max_num_in_admin=len(CHOICES))
 
     class Meta:

@@ -1,5 +1,5 @@
 from django import template
-from lieder.apps.menus.models import menus
+from lieder.apps.menus.models import Menu
 
 
 class MenuNode (template.Node):
@@ -9,7 +9,7 @@ class MenuNode (template.Node):
 
     def render (self, context):
         try:
-            m = Menus.objects.filter(name=self.menu)
+            m = Menu.objects.filter(name=self.menu).get()
         except:
             return ''
         

@@ -1,19 +1,31 @@
 
 
-def anon_gets_public_objs (func):
+def public_objects_detail (func):
     """For non-authenticated users, restrict querys to public pages.
 
     Use as decorator for generic views.
     """
     
-    def add_item_to_dict (request, queryset, *args, **kwargs):
+    def filter_public_objects (request, queryset, *args, **kwargs):
         if request.user.is_anonymous() :
-            newqueryset = queryset.filter(status='pbl')
-        else:
-            newqueryset = queryset
-            
-        return func(request, newqueryset, *args, **kwargs)
+            queryset = queryset.model.public_objects
+        return func(request, queryset, *args, **kwargs)
 
-    return add_item_to_dict
+    return filter_public_objects
+
+
+
+def public_objects_list (func):
+    """For non-authenticated users, restrict querys to public pages.
+
+    Use as decorator for generic views.
+    """
+    
+    def filter_public_objects (request, queryset, *args, **kwargs):
+        if request.user.is_anonymous() :
+            newqueryset = queryset.get().article_set.filter(status='pbl')
+        return func(request, queryset, *args, **kwargs)
+
+    return filter_public_objects
 
 
