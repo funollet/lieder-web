@@ -80,6 +80,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.admin',
+    'django.contrib.sites',
     'lieder.apps.misc',
     'lieder.apps.articles',
     'lieder.apps.concerts',
@@ -96,7 +97,7 @@ ABSOLUTE_URL_OVERRIDES = {
     'concerts.concert': lambda o: '/concerts/%s/' % o.slug ,
     'documents.document': lambda o: '/documents/%s/%s/' % (o.category.slug, o.slug) ,
     'documents.documentcategory': lambda o: '/documents/%s/' % o.slug ,
-    'links.link': lambda o: '/links/%s/%s/' % (o.get_category, o.slug) ,
+    'links.link': lambda o: '/links/%s/%s/' % (o.category, o.slug) ,
     'links.linkcategory': lambda o: '/links/%s/' % o.slug ,
     'programmes.programme': lambda o: '/programmes/%s/' % o.slug ,
 }

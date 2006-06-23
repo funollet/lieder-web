@@ -15,8 +15,8 @@ class Menu (models.Model):
         ordering = ['pub_date']
     class Admin:
         fields = (
-            (None, {'fields': (('name', 'pub_date',),),}),
-            ),
+            (None, {'fields': ('name', 'pub_date',)}),
+            )
 
     def __str__ (self):
         return self.name
@@ -50,11 +50,10 @@ class MenuItem (models.Model):
     def save (self) :
         """If url is a local link, stores as a relative link. """
         
-        #TODO: import sites, build domain with Manager
-        from django.models.core import sites
+        from django.contrib.sites.models import Site
 
         self.relative_url = ''
-        domain = sites.get_object(pk=1).domain
+        domain = Site.objects.all()[0].domain
         if domain in self.url :
             begin = self.url.find (domain)
             self.relative_url = self.url[begin+len(domain):]

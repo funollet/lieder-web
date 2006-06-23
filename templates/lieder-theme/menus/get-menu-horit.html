@@ -3,13 +3,15 @@
 {% get_menu "horitzontal" as menu_items %}
 
 <div id="globalNav">
-
+  <div id="globalNavLinks">
+    <ul>
 {% for item in menu_items %}
-    {% ifequal request.path item.0 %} <span id="button-active">
-    {% else %} <span>
+    {% ifequal request.path item.0 %} <li id="button-active">
+    {% else %} <li>
     {% endifequal %}
-    <a href="{{ item.0 }}">{{ item.1 }}</a>{% if not forloop.last %} <br />{% endif %}
+    <a href="{{ item.0 }}">{{ item.1 }}</a>
+    </li>
 {% endfor %}
-    </span>
-
+    </ul>
+  </div>
 </div>

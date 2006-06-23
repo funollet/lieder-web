@@ -3,7 +3,6 @@
 
 {% block content %}
 
-{% for object in object_list %}
     {% if object.city %}
         <h2>{{ object.city }}</h2>
     {% endif %}
@@ -46,8 +45,5 @@
     {% if object.others_markdown %}
         <p> {% trans "Others" %}: {{ object.others }}</p>
     {% endif %}
-    
-    <p class="filet">&nbsp;</p>
-{% endfor %}
 
 {% endblock %}

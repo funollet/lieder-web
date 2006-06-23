@@ -3,7 +3,6 @@ from datetime import datetime
 from lieder.apps.concerts.models import Concert
 
 # Return only objects with a future 'pub_date'.
-
 info_dict = { 'queryset': Concert.objects.filter(pub_date__gt=str(datetime.now())) }
 
 info_dict_slug = dict(info_dict, slug_field='slug')

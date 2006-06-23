@@ -1,0 +1,14 @@
+{% load i18n %}
+{% extends "base.html" %}
+
+{% block content %}
+	
+        <h2><a href="{{ object.get_file_url }}">
+        <img class="objectments" src="/media-lieder/img/pictopremsa.png" alt="pictopremsa" width="21" height="21" />
+        {{ object.name }}</a></h2>
+	{% if object.description %}
+            {{ object.description }}
+	{% endif %}
+        <p class="filet">&nbsp;</p>
+
+{% endblock %}
