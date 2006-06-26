@@ -3,6 +3,7 @@
 
 
 {% block content %}
+<div id="content">
 
 {% for article in object_list %}
     <h2>{{ article.name }}</h2>
@@ -13,4 +14,5 @@
     {{ article.body }}
 {% endfor %}
 
+</div>
 {% endblock %}

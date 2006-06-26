@@ -1,15 +1,17 @@
-{% load i18n %}
 {% extends "base.html" %}
+{% load i18n %}
 
 
 {% block content %}
+<div id="content">
 
-{% for object in object.object_set.all %}
-	<h2><a href="{{ object.url }}">{{ object.name }}</a></h2>
-	{% if object.description %}
-            <p>{{ object.description }}</p>
+{% for link in object.link_set.all %}
+	<h2><a href="{{ link.url }}">{{ link.name }}</a></h2>
+	{% if link.description %}
+            <p>{{ link.description }}</p>
 	{% endif %}
         <p class="filet">&nbsp;</p>
 {% endfor %}
 
+</div>
 {% endblock %}

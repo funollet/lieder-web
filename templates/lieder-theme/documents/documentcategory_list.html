@@ -1,8 +1,9 @@
-{% load i18n %}
 {% extends "base.html" %}
+{% load i18n %}
 
 
 {% block content %}
+<div id="content">
 
 {% for categ in object_list %}
     <h2><a href="{{ categ.get_absolute_url }}">
@@ -13,4 +14,6 @@
     <p class="filet">&nbsp;</p>
 
 {% endfor %}
+
+</div>
 {% endblock %}

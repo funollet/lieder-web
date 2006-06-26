@@ -3,6 +3,7 @@
 
 
 {% block content %}
+<div id="content">
 
 {% if object.image %}
     <img src="{{ object.get_image_url }}" alt="{{ object.name }}" height="{{ object.get_image_height }}"
@@ -11,4 +12,5 @@
 {% endif %}
 {{ object.body }}
 
+</div>
 {% endblock %}

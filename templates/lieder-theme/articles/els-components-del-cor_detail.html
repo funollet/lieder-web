@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div id="content">
 
     {% if object.image %}
     <img src="{{ object.get_image_url }}" alt="{{ object.name }}" 
@@ -15,4 +16,5 @@
         {% include "singers/singers_emm_table.html" %}
     </div>
 
+</div>
 {% endblock %}

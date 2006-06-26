@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div id="content">
 
 {% for object in object_list %}
     {% if object.city %}
@@ -50,4 +51,5 @@
     <p class="filet">&nbsp;</p>
 {% endfor %}
 
+</div>
 {% endblock %}

@@ -1,7 +1,8 @@
-{% load i18n %}
 {% extends "base.html" %}
-                {% block content %}
+{% load i18n %}
 
+{% block content %}
+<div id="content">
 <ul>
 {% for prog in object_list %}
 	<li>
@@ -12,4 +13,5 @@
 	</li>
 {% endfor %}
 </ul>
-                {% endblock %}
+</div>
+{% endblock %}

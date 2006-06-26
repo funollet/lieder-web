@@ -1,16 +1,5 @@
-{% load i18n %}
-{% extends "base.html" %}
-
-{% block script %}{% include "articles/js-enregistraments.html" %}{% endblock %}
-
-{% block content %}
-<div id="content">
-
-
-<div id="taulaenregistrament">
-
 <table>
-{% for article in object_list %}
+{% for article in section_list %}
     {% cycle <tr>,<!--><--> %}
     <td>
       {% comment %}
@@ -27,7 +16,3 @@
     {% cycle <!--><-->,</tr> %}
 {% endfor %}
 </table>
-
-</div>
-</div>	
-{% endblock %}

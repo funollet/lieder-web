@@ -2,6 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div id="content">
 
     {% if object.city %}
         <h2>{{ object.city }}</h2>
@@ -46,4 +47,5 @@
         <p> {% trans "Others" %}: {{ object.others }}</p>
     {% endif %}
 
+</div>
 {% endblock %}

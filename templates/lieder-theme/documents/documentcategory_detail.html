@@ -1,7 +1,9 @@
-{% load i18n %}
 {% extends "base.html" %}
+{% load i18n %}
 
-                {% block content %}
+{% block content %}
+<div id="content">
+
 {% for docu in object.document_set.all %}
 	<h2><a href="{{ docu.get_file_url }}">
         <img class="documents" src="/media-lieder/img/pictopremsa.png" alt="pictopremsa" width="21" height="21" />
@@ -11,4 +13,6 @@
 	{% endif %}
         <p class="filet">&nbsp;</p>
 {% endfor %}
-                {% endblock %}
+
+</div>
+{% endblock %}
