@@ -12,24 +12,25 @@
     {% if object.start_date %}
         <strong>{{ object.start_date}}</strong><br />
     {% endif %}
+    {% if object.auditorium %}
+        {{ object.auditorium }}<br />
+    {% endif %}
+
     <p>
     {% if object.programme %}
         <em>{% trans "Programme" %}: </em>{{ object.programme }}<br />
     {% endif %}
     
     {% if object.cycle %}
-        {{ object.cycle }}<br />
+        <em>{% trans "Cycle" %}: </em>{{ object.cycle }}<br />
     {% endif %}
     {% if object.organization %}
-        {{ object.organization }}<br />
+        <em>{% trans "Organization" %}: </em>{{ object.organization }}<br />
     {% endif %}
     </p>
     
     
     <p>
-    {% if object.auditorium %}
-        {{ object.auditorium }}<br />
-    {% endif %}
     {% if object.address %}
         <em>{{ object.address }}</em><br />
     {% endif %}

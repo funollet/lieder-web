@@ -1,1 +1,44 @@
-{% load i18n menutags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>{% block meta %} <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> {% endblock %}{% block title %} <title>{% trans "Cor de Cambra Lieder Camera" %}</title> {% endblock %}{% block style %}<style type="text/css"><!----></style><link href="/media-lieder/css/base.css" rel="stylesheet" type="text/css" /><style type="text/css"><!--.Estilo3 {color: #000000}--></style>{% endblock %}{% block script %}{% endblock %}</head><!-- -- head end -------------------------------------------------- -->{% block body-opentag %}<body>{% endblock %}{% block topbar %}<div id="masthead">    {% include "menus/get-menu-horit.html" %}    <h1 id="siteName" align="right">    <a href="/"><img src="/media-lieder/img/logotronja.png" target='/' height="65" width="255">    </a></h1></div>{% endblock %}<!-- div id="content" -->      {% block content %}{% endblock %}<!-- /div --> {% block sidebar %} {% include "menus/get-menu-vert.html" %} {% endblock %}{% block bottombar %} {% include "lang-chooser-p.html" %} {% endblock %}</body></html>
+{% load i18n menutags %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+{% block meta %} <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> {% endblock %}
+{% block title %} <title>{% trans "Cor de Cambra Lieder C&aacute;mera" %}</title> {% endblock %}
+{% block style %}
+<style type="text/css">
+<!--
+-->
+</style>
+<link href="/media-lieder/css/base.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.Estilo3 {color: #000000}
+-->
+</style>
+{% endblock %}
+{% block script %}{% endblock %}
+</head>
+
+<!-- -- head end -------------------------------------------------- -->
+
+{% block body-opentag %}<body>{% endblock %}
+
+{% block topbar %}
+<div id="masthead">
+    {% include "menus/get-menu-horit.html" %}
+    <h1 id="siteName" align="right">
+    <a href="/"><img src="/media-lieder/img/logotronja.png" target='/' height="65" width="255">
+    </a></h1>
+</div>
+{% endblock %}
+
+<!-- div id="content" -->
+      {% block content %}{% endblock %}
+<!-- /div --> 
+
+{% block sidebar %} {% include "menus/get-menu-vert.html" %} {% endblock %}
+{% block bottombar %} {% include "lang-chooser-p.html" %} {% endblock %}
+
+</body></html>

@@ -10,6 +10,18 @@
         {% if categ.catdescription %}
             <p>{{ categ.catdescription }}</p>
 	{% endif %}
+
+
+<ul>
+{% for link in categ.link_set.all %}
+	<li><a href="{{ link.url }}">{{ link.name }}</a>
+	{% if link.description %}
+            <p>{{ link.description }}</p>
+	{% endif %}
+        </li>
+{% endfor %}
+</ul>
+
 {% endfor %}
 
 </div>
