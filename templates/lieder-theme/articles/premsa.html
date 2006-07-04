@@ -8,7 +8,6 @@
 {% for article in object_list %}
     
     <h2><a href="{{ article.get_image_url }}" onclick="window.open(this.href,'newwin', 'width=450,height=450'); return false;">
-    <img class="premsa" src="/media-lieder/img/pictopremsa.png" alt="pictopremsa" width="21" height="21" />
     {{ article.name }}</a></h2>
     {% if article.intro %}
         {{ article.intro }}

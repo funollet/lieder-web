@@ -8,8 +8,8 @@
 {% for article in object_list %}
     <h2>{{ article.name }}</h2>
     {% if article.image %}
-        <img src={{ article.get_image_url }} alt="{{ article.name }}" height="{{ article.get_image_height }}"
-        width="{{ article.get_image_width }}" />
+        <img class="text-around" src={{ article.get_image_url }} alt="{{ article.name }}" 
+        height="{{ article.get_image_height }}" width="{{ article.get_image_width }}" />
     {% endif %}
     {{ article.body }}
 {% endfor %}

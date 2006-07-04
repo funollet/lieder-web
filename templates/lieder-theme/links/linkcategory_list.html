@@ -8,7 +8,7 @@
 {% for categ in object_list %}
 	<h2><a href="{{ categ.get_absolute_url }}">{{ categ.catname }}</a></h2>
         {% if categ.catdescription %}
-            <p>{{ categ.catdescription }}</p>
+            {{ categ.catdescription }}
 	{% endif %}
 
 
@@ -16,7 +16,7 @@
 {% for link in categ.link_set.all %}
 	<li><a href="{{ link.url }}">{{ link.name }}</a>
 	{% if link.description %}
-            <p>{{ link.description }}</p>
+            {{ link.description }}
 	{% endif %}
         </li>
 {% endfor %}

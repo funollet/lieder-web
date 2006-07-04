@@ -104,10 +104,10 @@ ABSOLUTE_URL_OVERRIDES = {
 
 # LOCALE_PATHS = ( '/home/jordif/devel/djangos/locale/', )
 LANGUAGES = (
-    ('ca', 'Catalan'),
+    ('ca', 'Català'),
+    ('es', 'Castellano'),
     ('en', 'English'),
-    ('es', 'Spanish'),
-    ('fr', 'French'),
+    ('fr', 'Français'),
 )
 MARKUP = 'docutils'     # 'docutils', 'markdown' or 'textile'
 INTERNAL_IPS = ('127.0.0.1',)

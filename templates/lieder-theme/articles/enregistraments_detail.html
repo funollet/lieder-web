@@ -12,7 +12,7 @@
 {% block sidebar %}
     {% include "menus/get-menu-vert.html" %}
 
-    <div id="taulaenregistrament-unitat3">
+    <div id={{object.slug}} class="songlist-on-sidebar">
         {% if object.image %}
         <img src="{{ object.get_image_url }}" alt="{{ object.name }}" height=74" width="74"/>
         {% endif %}
