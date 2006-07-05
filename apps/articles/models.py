@@ -114,6 +114,7 @@ class Article (models.Model):
     class Admin:
         list_display = ('default_name', 'section', 'pub_date',)
         list_filter = ('status', 'section',)
+        search_fields = ('default_name',)
         fields = (
             (None, {
             'fields': (('default_name', 'section'), ('status',),)}

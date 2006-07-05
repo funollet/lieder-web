@@ -42,7 +42,8 @@ def parse_markup (obj):
 #             'input_encoding': 'unicode',
 #             'output_encoding': 'unicode',
 #             'output-encoding-error-handler': 'xmlcharrefreplace'}
-        parse = lambda s: publish_parts (source=s, writer_name="html4css1")["fragment"].encode('utf-8')
+        overrides = {'initial_header_level': 2 }
+        parse = lambda s: publish_parts (source=s, writer_name="html4css1", settings_overrides=overrides)["fragment"].encode('utf-8')
     elif settings.MARKUP == 'markdown':
         import markdown
         parse = lambda s: markdown.markdown(s)

@@ -7,6 +7,7 @@
 
 <ul>
 {% for article in object_list %}
+<div class="article-{{ article.section.slug }}">
     <li>
     {% if article.image %}
         <a href="{{ article.get_absolute_url }}">
@@ -16,6 +17,7 @@
     <a href="{{ article.get_absolute_url }}">{{ article.name }}</a>
     </li>
 
+</div>
 {% endfor %}
 </ul>
 

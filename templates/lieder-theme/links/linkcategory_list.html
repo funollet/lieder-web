@@ -6,7 +6,7 @@
 <div id="content">
 
 {% for categ in object_list %}
-	<h2><a href="{{ categ.get_absolute_url }}">{{ categ.catname }}</a></h2>
+	<h2>{{ categ.catname }}</h2>
         {% if categ.catdescription %}
             {{ categ.catdescription }}
 	{% endif %}

@@ -6,13 +6,16 @@
 <div id="content">
 
 {% for article in object_list %}
+<div class="article-{{article.section.slug}}">
     
-    <h2><a href="{{ article.get_image_url }}" onclick="window.open(this.href,'newwin', 'width=450,height=450'); return false;">
+    <h2><a href="{{ article.get_image_url }}" onclick="window.open(this.href,'newwin',
+        'width=450,height=450'); return false;">
     {{ article.name }}</a></h2>
     {% if article.intro %}
         {{ article.intro }}
     {% endif %}
-    <p class="filet">&nbsp;</p>
+
+</div>
 {% endfor %}
 
 </div>

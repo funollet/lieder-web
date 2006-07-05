@@ -5,6 +5,7 @@
 <div id="content">
 
 {% for object in object_list %}
+<div class="concerts">
     {% if object.city %}
         <h2>{{ object.city }}</h2>
     {% endif %}
@@ -49,7 +50,7 @@
         <p> {% trans "Others" %}: {{ object.others }}</p>
     {% endif %}
     
-    <p class="filet">&nbsp;</p>
+</div>
 {% endfor %}
 
 </div>

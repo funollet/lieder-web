@@ -9,7 +9,7 @@
     {% ifequal request.path item.0 %} <li class="button-active">
     {% else %} <li>
     {% endifequal %}
-    <a href="{{ item.0 }}">{{ item.1 }}</a>
+    <a href="{{ item.0 }}">{{ item.1|lower }}</a>
     </li>
 {% endfor %}
     </ul>
