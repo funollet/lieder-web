@@ -1,15 +1,12 @@
-{% load i18n menutags misctags %}
-
-{% get_menu "vertical" as menu_items %}
-
 <div id="navBar">   
   <div id="sectionLinks">
 
 <ul>
-{% for item in menu_items %}
-    {% ifstartswith request.path item.0 %} <li class="button-active">
+{% for item in menu_ul %}
+
+    {% ifequal request.path item.0 %} <li class="button-active">
     {% else %} <li>
-    {% endifstartswith %}
+    {% endifequal %}
     <a href="{{ item.0 }}">
     <img src="/media-lieder/img/quadrattronja.png" width="15" height="9" />{{ item.1|lower }}
     </a></li>

@@ -1,11 +1,7 @@
 <table>
-{% for article in section_list %}
+{% for article in enreg_list %}
     {% cycle <tr>,<!--><--> %}
     <td>
-      {% comment %}
-            <a href="{{ article.get_absolute_url }}" onclick="window.open(this.href,'newwin',
-             'width=450,height=450'); return false;">
-      {% endcomment %}
       <a href="{{ article.get_absolute_url }}">
       <img class="enregistraments" src="{{ article.get_image_url }}" alt="{{ article.name }}"
       height="{{ article.get_image_height }}" width="{{ article.get_image_width }}" />

@@ -1,6 +1,7 @@
 from django import template
-from lieder.apps.menus.models import Menu
+from lieder.apps.menus.models import Menu,MenuItem
 
+register = template.Library()
 
 class MenuNode (template.Node):
     def __init__ (self, menu, var_name):
@@ -34,11 +35,21 @@ def do_get_menu (parser, token):
     
     return MenuNode(format_string[1:-1], var_name)
 
-
-register = template.Library()
 register.tag ('get_menu', do_get_menu)
 
 
+#def show_menu_ul ():
+    #return {'menu_ul':
+        #MenuItem.objects.filter(menu__name__exact='horitzontal') }
+
+#register.inclusion_tag('menus/menu_ul_emm.html')(show_menu_ul)
+
+
+
+
+
+###############################################################################
+# testing
 
 def test_class_menunode():
     cntxt = {}
