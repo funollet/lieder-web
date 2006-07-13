@@ -4,25 +4,27 @@
 
 {% block content %}
 <div id="content">
+ <div id="link-app">
 
 {% for categ in object_list %}
-	<h2>{{ categ.catname }}</h2>
-        {% if categ.catdescription %}
-            {{ categ.catdescription }}
-	{% endif %}
+    <h2>{{ categ.catname }}</h2>
+    {% if categ.catdescription %}
+        {{ categ.catdescription }}
+    {% endif %}
 
-
-<ul>
-{% for link in categ.link_set.all %}
-	<li><a href="{{ link.url }}">{{ link.name }}</a>
+    {% for link in categ.link_set.all %}
+        <div class="link-item">
+	<p>
+        <strong><a href="{{ link.url }}">{{ link.name }}</a></strong>
 	{% if link.description %}
             {{ link.description }}
 	{% endif %}
-        </li>
-{% endfor %}
-</ul>
-
+        </p>
+        </div>
 {% endfor %}
 
+{% endfor %}
+
+ </div>
 </div>
 {% endblock %}

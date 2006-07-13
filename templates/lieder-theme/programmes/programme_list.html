@@ -3,15 +3,14 @@
 
 {% block content %}
 <div id="content">
-<ul>
+
 {% for prog in object_list %}
-	<li>
+	<p>
 	<h2><a href="{{ prog.get_absolute_url }}">{{ prog.name }}</a></h2>
         {% if prog.intro %}
 	<p>{{ prog.intro }}</p>
         {% endif %}
-	</li>
+	</p>
 {% endfor %}
-</ul>
 </div>
 {% endblock %}
