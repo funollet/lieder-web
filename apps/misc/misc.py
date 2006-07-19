@@ -35,6 +35,7 @@ def parse_markup (obj):
     # Choose a markup parser.
     if settings.MARKUP=='docutils':
         from docutils.core import publish_parts
+        
         # commandline troubleshooting
         # echo ç | rst2html -o ascii --output-encoding-error-handler xmlcharrefreplace -
 #         docutils_settings = {}
@@ -43,7 +44,8 @@ def parse_markup (obj):
 #             'output_encoding': 'unicode',
 #             'output-encoding-error-handler': 'xmlcharrefreplace'}
         overrides = {'initial_header_level': 2 }
-        parse = lambda s: publish_parts (source=s, writer_name="html4css1", settings_overrides=overrides)["fragment"].encode('utf-8')
+        parse = lambda s: publish_parts (source=s, writer_name="rst2django",
+            settings_overrides=overrides)["fragment"].encode('utf-8')
     elif settings.MARKUP == 'markdown':
         import markdown
         parse = lambda s: markdown.markdown(s)

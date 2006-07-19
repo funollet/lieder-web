@@ -7,9 +7,6 @@
 {% for prog in object_list %}
 	<p>
 	<h2><a href="{{ prog.get_absolute_url }}">{{ prog.name }}</a></h2>
-        {% if prog.intro %}
-	<p>{{ prog.intro }}</p>
-        {% endif %}
 	</p>
 {% endfor %}
 </div>

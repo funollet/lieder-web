@@ -7,11 +7,25 @@
 
 <h2>{{ object.name }}</h2>
 
-{{ object.first_part }}
-<p></p>
-{{ object.second_part }}
+{% if object.intro %}
+    {{ object.intro }}
+{% endif %}
 
-{{ object.footer }}
+{% if object.first_part %}
+    {% if object.first_part %}<h3>Primera part</h3>{% endif %}
+    <p>
+    {{ object.first_part }}
+    </p>
+{% endif %}
+
+{% if object.second_part %}
+    <h3>Segona part</h3>
+    <p>
+    {{ object.second_part }}
+    </p>
+{% endif %}
+
+{% if object.footer %} {{ object.footer }} {% endif %}
 
 </div></div>
 {% endblock %}
