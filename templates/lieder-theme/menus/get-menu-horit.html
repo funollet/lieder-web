@@ -2,9 +2,7 @@
 
 {% get_menu "horitzontal" as menu_items %}
 
-<div id="globalNav">
-  <div id="globalNavLinks">
-    <ul>
+<ul>
 {% for item in menu_items %}
     {% ifequal request.path item.0 %} <li class="button-active">
     {% else %} <li>
@@ -12,6 +10,4 @@
     <a href="{{ item.0 }}">{{ item.1|lower }}</a>
     </li>
 {% endfor %}
-    </ul>
-  </div>
-</div>
+</ul>

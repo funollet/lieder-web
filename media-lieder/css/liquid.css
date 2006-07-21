@@ -1,0 +1,228 @@
+body{
+	font-family: verdana;
+	font-size: 10px;
+        color: black;
+        background-color: white;
+	left: auto;
+	right: auto;
+	clip:    rect(auto auto auto auto);
+	line-height: normal;
+	padding: 0; margin: 0;
+}
+a { text-decoration: none; }
+a:link, a:visited { color: black; }
+a:hover, a:active { color: #ea7100; }
+h1, h2, h3, h4, h5, h6 {
+	font-family: verdana;
+	margin: 0px;
+	padding: 0px;
+/* 	text-decoration: none; */
+	line-height: 15px;
+}
+h1{
+	font-size: 13px;
+	font-style: normal;
+}
+h2{
+	font-size: 11px;
+	color: #ea7100;
+	font-style: normal;
+	font-weight: bolder;
+}
+h3{
+	font-size: 12px;
+	color: #333333;
+	font-weight: bolder;
+	text-align: left;
+	padding-top: 10px;
+}
+ul{ list-style-type: none; }
+img { border: 0px; }
+table td tr {
+	border: 0px;
+	padding: 0px;
+/*     border-collapse: ; */
+
+}
+/************************************/
+
+
+/******** header ********************/
+#header {
+    background: #ea7100 ;
+    height: 65px;
+}
+#header-logo { float: right ;}
+#header-menu { float: left ;}
+#header ul { margin:0 ;padding: 0; }
+#header ul li {
+    padding: 6px 0 6px 10px ;
+}
+#header ul li a {
+    color: white ;
+    font-size: 11px ;
+    font-weight: bold ;
+}
+#header ul li.button-active a { color: black ; }
+#header ul li a:hover { font-size: 13px ; }
+/************************************/
+
+
+/********* sidebar menu ************/
+#sidebar {
+    width: 220px;   /* ha de coincidir amb #content margin-left */
+    float: right;
+}
+#sidebar-menu ul {
+    padding-left: 1.5em; 
+    margin:0;
+}
+#sidebar-menu ul li {
+    padding: .5em 0 0.5em 15px ;
+    background: url('/media-lieder/img/quadrattronja.png') no-repeat center left;
+    line-height: 15px ;
+    font-size: 11px;
+    font-weight: bold;
+    color: black ;
+}
+#sidebar-menu ul li a:hover { font-size: 12px ; color: black ; }
+#sidebar-menu ul li.button-active a { color: #ea7100 ; }
+/************************************/
+
+/********* footer********************/
+.clearing { /* IE-hack; avoids #container and #footer merging */
+    clear: both;
+    border:0; margin:0; padding:0;
+    height: 0px;
+    line-height: 0px;             /* IE likes this :-( */
+}
+#footer {
+    font-size: 9px;
+    vertical-align: bottom;
+    text-align: center;
+    position: static;
+    height: 10px;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 0px 10px 0px;
+}
+/************************************/
+
+/***** pagina d'entrada, selecció d'idioma ****/
+#logoinici {
+	text-align: center;
+	width: 100%;
+	padding-top: 120px;
+}
+/************************************/
+
+/************************************/
+#container {
+    width: 100%;
+    float: left;
+    margin: 0 -220px 0 0;       /* sidebar space */
+    border: 0; padding: 0 ;
+}
+#content {
+    border: 0; padding:0;
+    margin: 0 220px 0 0;        /* sidebar space */
+    vertical-align: top ;
+    padding: 10px 0px 0px 10px;
+}
+
+/*#content{
+	width: 75%;
+	float: left;
+	position: static;
+	margin: 0px;
+	padding: 10px 0px 0px 10px;
+}*/
+
+
+#content img {
+        margin: 1em 1em 1em 0em ;
+}
+
+.article-la-premsa-ha-dit, .concerts, .document-promoci-concerts {
+        border-bottom: 1px solid #cccccc ;
+        margin-bottom: 10px ;
+}
+
+img.text-around {
+        float: left;
+}
+img.centered {
+        display: block ;
+        margin-left: auto;
+        margin-right: auto ;
+}
+img.icon {
+    vertical-align: baseline;
+    margin: 0px ;
+}
+#singers table {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+#taulaenregistrament table{
+	width: 95%;
+	vertical-align: top;
+}
+#taulaenregistrament tr{
+	vertical-align: top;
+	height: 100%;
+	width: 90%;
+}
+#taulaenregistrament td{
+	height: 100%;
+	border-bottom: 1px solid #cccccc;
+	border-top: 5px solid white;
+	border-right: 5px solid white;
+	border-left: 5px solid white;
+}	
+#taulaenregistrament th{
+	height: 100%;
+}	
+#taulaenregistrament img{
+	width: 100px;
+	height: 100px;
+	vertical-align: bottom;
+	margin-right: 5px;
+	text-align: left;
+	float: left;
+	margin-top: 0px;
+	margin-bottom: 40px;
+}
+
+.songlist-on-sidebar {
+	position: static;
+	margin: 10px 0px 10px 78%;
+	text-align: left;
+	width: 20%;
+	padding: 15px 0px 10px 15px;
+}
+.songlist-on-sidebar a { color: #ea7100 ; }
+#passeggiata { background-color: #FFC336 ; }
+#canso-tradicional-i-popular-catalana { background-color: #FF9D32 ; }
+#canso-cau-dorella { background-color: #939100 ; }
+#nadales-i-canons { background-color: #019170 ; }
+
+/* links application */
+#link-app .link-item {
+        padding: 0 0 0 3em;
+}
+
+
+
+#programmes table.docutils {
+        border: 1px solid #ea7100 ;
+        width: 75%;
+}
+#programmes table.docutils ul {
+        margin :0;
+}
+#programmes table.docutils col.col-1 {
+        text-align: right ;
+}
+

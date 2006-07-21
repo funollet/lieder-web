@@ -6,7 +6,7 @@
 <head>
 {% block meta %} <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> {% endblock %}
 {% block title %} <title>{% trans "Cor de Cambra Lieder C&agrave;mera" %}</title> {% endblock %}
-{% block style %} <link href="/media-lieder/css/base.css" rel="stylesheet" type="text/css" /> {% endblock %}
+{% block style %} <link href="/media-lieder/css/liquid.css" rel="stylesheet" type="text/css" /> {% endblock %}
 {% block script %}{% endblock %}
 </head>
 
@@ -15,17 +15,29 @@
 {% block body-opentag %}<body>{% endblock %}
 
 {% block topbar %}
-<div id="masthead">
-    {% include "menus/get-menu-horit.html" %}
-    <h1 id="siteName" align="right">
-    <a href="/"><img src="/media-lieder/img/logotronja.png" target='/' height="65" width="255">
-    </a></h1>
+<div id="header">
+ <div id="header-menu">{% include "menus/get-menu-horit.html" %}</div>
+ <a href="/">
+   <img id="header-logo"  src="/media-lieder/img/logotronja.png" target='/' height="65" width="255">
+ </a>
 </div>
 {% endblock %}
 
+<div id="container">
 {% block content %}{% endblock %}
+</div>
 
-{% block sidebar %} {% include "menus/get-menu-vert.html" %} {% endblock %}
-{% block bottombar %} {% include "lang-chooser-p.html" %} {% endblock %}
+{% block sidebar %}
+<div id="sidebar">
+ <div id="sidebar-menu">
+  {% include "menus/get-menu-vert.html" %}
+ </div>
+</div>
+{% endblock %}
+
+{% block bottombar %}
+<div class="clearing">&nbsp;</div>
+<div id="footer">{% include "lang-chooser-p.html" %}</div> 
+{% endblock %}
 
 </body></html>

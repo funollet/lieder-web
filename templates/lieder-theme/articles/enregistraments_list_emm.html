@@ -1,6 +1,6 @@
 <table>
 {% for article in enreg_list %}
-    {% cycle <tr>,<!--><--> %}
+    {% cycle <tr>,<!--none--> %}
     <td>
       <a href="{{ article.get_absolute_url }}">
       <img class="enregistraments" src="{{ article.get_image_url }}" alt="{{ article.name }}"
@@ -9,6 +9,6 @@
       <h3>{{ article.name }}</h3>
       {% if article.intro %}{{ article.intro }}{% endif %}
     </td>
-    {% cycle <!--><-->,</tr> %}
+    {% cycle <!--none-->,</tr> %}
 {% endfor %}
 </table>

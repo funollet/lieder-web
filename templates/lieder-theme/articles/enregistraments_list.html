@@ -9,7 +9,7 @@
 
 <table>
 {% for article in object_list %}
-    {% cycle <tr>,<!--><--> %}
+    {% cycle <tr>,<!--jump-this--> %}
     <td>
       {% comment %}
             <a href="{{ article.get_absolute_url }}" onclick="window.open(this.href,'newwin',
@@ -22,7 +22,7 @@
       <h3>{{ article.name }}</h3>
       {% if article.intro %}{{ article.intro }}{% endif %}
     </td>
-    {% cycle <!--><-->,</tr> %}
+    {% cycle <!--jump-this-->,</tr> %}
 {% endfor %}
 </table>
 
