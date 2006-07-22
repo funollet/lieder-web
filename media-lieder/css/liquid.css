@@ -38,12 +38,7 @@ h3{
 }
 ul{ list-style-type: none; }
 img { border: 0px; }
-table td tr {
-	border: 0px;
-	padding: 0px;
-/*     border-collapse: ; */
-
-}
+table td tr { border: 0px; padding: 0px; }
 /************************************/
 
 
@@ -70,13 +65,10 @@ table td tr {
 
 /********* sidebar menu ************/
 #sidebar {
-    width: 220px;   /* ha de coincidir amb #content margin-left */
+    width: 205px;   /* ha de coincidir amb #content margin-left */
     float: right;
 }
-#sidebar-menu ul {
-    padding-left: 1.5em; 
-    margin:0;
-}
+#sidebar-menu ul { padding: 0; margin:0; }
 #sidebar-menu ul li {
     padding: .5em 0 0.5em 15px ;
     background: url('/media-lieder/img/quadrattronja.png') no-repeat center left;
@@ -120,24 +112,15 @@ table td tr {
 #container {
     width: 100%;
     float: left;
-    margin: 0 -220px 0 0;       /* sidebar space */
+    margin: 0 -205px 0 0;       /* sidebar space */
     border: 0; padding: 0 ;
 }
 #content {
     border: 0; padding:0;
-    margin: 0 220px 0 0;        /* sidebar space */
+    margin: 0 205px 0 0;        /* sidebar space */
     vertical-align: top ;
     padding: 10px 0px 0px 10px;
 }
-
-/*#content{
-	width: 75%;
-	float: left;
-	position: static;
-	margin: 0px;
-	padding: 10px 0px 0px 10px;
-}*/
-
 
 #content img {
         margin: 1em 1em 1em 0em ;
@@ -196,10 +179,8 @@ img.icon {
 }
 
 .songlist-on-sidebar {
-	position: static;
-	margin: 10px 0px 10px 78%;
 	text-align: left;
-	width: 20%;
+        margin: 0;
 	padding: 15px 0px 10px 15px;
 }
 .songlist-on-sidebar a { color: #ea7100 ; }
@@ -213,8 +194,12 @@ img.icon {
         padding: 0 0 0 3em;
 }
 
-
-
+#programmes-list ul {
+        margin:0; padding: 0;
+}
+#programmes-list li {
+        padding: 0 0 1em 0;
+}
 #programmes table.docutils {
         border: 1px solid #ea7100 ;
         width: 75%;

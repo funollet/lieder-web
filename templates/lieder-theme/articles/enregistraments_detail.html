@@ -10,7 +10,8 @@
 {% endblock %}
 
 {% block sidebar %}
-    {% include "menus/get-menu-vert.html" %}
+<div id="sidebar">
+ <div id="sidebar-menu">{% include "menus/get-menu-vert.html" %}</div>
 
     <div id={{object.slug}} class="songlist-on-sidebar">
         {% if object.image %}
@@ -20,4 +21,5 @@
         <h3>{{ object.name }}</h3>
         {{ object.body }}
     </div>
+</div>
 {% endblock %}
