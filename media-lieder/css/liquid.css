@@ -106,6 +106,7 @@ table td tr { border: 0px; padding: 0px; }
 	width: 100%;
 	padding-top: 120px;
 }
+#logoinici li { display: inline ; }
 /************************************/
 
 /************************************/
@@ -130,9 +131,7 @@ table td tr { border: 0px; padding: 0px; }
         margin-bottom: 10px ;
 }
 
-img.text-around {
-        float: left;
-}
+img.text-around { float: left; }
 img.centered {
         display: block ;
         margin-left: auto;
