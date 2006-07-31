@@ -15,7 +15,6 @@ class DjangoHTMLTranslator(html4css1.HTMLTranslator):
     def write_colspecs(self):
         idx = 0
         for node in self.colspecs:
-            self.body.append(self.starttag(node, 'col',
-                                           CLASS='col-%s' % idx))
+            self.body.append(self.starttag(node, 'col', CLASS='col-%s' % idx))
             idx += 1 
         self.colspecs = []

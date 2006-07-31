@@ -111,6 +111,7 @@ class Article (models.Model):
     class Meta:
         verbose_name = _('article')
         verbose_name_plural = _('articles')
+        ordering = ['-pub_date']
     class Admin:
         list_display = ('default_name', 'section', 'pub_date',)
         list_filter = ('status', 'section',)
