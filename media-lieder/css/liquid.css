@@ -5,7 +5,6 @@ body{
         background-color: white;
 	left: auto;
 	right: auto;
-/* 	clip:    rect(auto auto auto auto); */
 	line-height: normal;
 	padding: 0; margin: 0;
 }
@@ -16,25 +15,23 @@ a {
 a:link, a:visited { color: black; }
 a:hover, a:active { color: #ea7100; }
 h1, h2, h3, h4, h5, h6 {
-	margin: 0; padding: 0;
-	line-height: 15px;
+    padding: 0;
+/*     margin: 0; */
 }
-h1{
-	font-size: 13px;
-}
-h2{
+h1 { font-size: 13px; }
+h2, h2 a {
 	color: #ea7100;
 	font-size: 11px;
 	font-weight: bolder;
 }
 h3{
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: bolder;
 	padding: 10px 0 10px 0;
 }
 ul{ list-style-type: none; }
-img { border: 0px; }
-table td tr { border: 0px; padding: 0px; }
+img { border: 0; }
+table td tr { border: 0; padding: 0; }
 /************************************/
 
 
@@ -123,13 +120,7 @@ table td tr { border: 0px; padding: 0px; }
     padding: 10px 20px 10px 10px;
 }
 
-#content img { margin: 1em 1em 1em 0em ; }
-#content .article-principals-concerts-item h2 a { color: #ea7100 ; }
-
-.article-la-premsa-ha-dit, .concerts, .document-promoci-concerts {
-        border-bottom: 1px solid #cccccc ;
-        margin-bottom: 10px ;
-}
+#content img { margin: 0em 1em 1em 0em ; }
 
 img.text-around { float: left; }
 img.centered {
@@ -141,44 +132,27 @@ img.icon {
     vertical-align: baseline;
     margin: 0px ;
 }
+/************************************/
+
 #singers table {
 	width: 100%;
 	margin: 0px; padding: 0px;
 }
 
-
 /**** enregistraments ***/
-#taulaenregistrament table {
-/* 	width: 95%; */
-/* 	vertical-align: top; */
-        border-spacing: 10px;
-
-}
-/*#taulaenregistrament tr{
-	vertical-align: top;
-	height: 100%;
-	width: 90%;
-}*/
+#taulaenregistrament table h3 { margin: 0; padding: 0; }
+#taulaenregistrament table { border-spacing: 10px; }
 #taulaenregistrament td{
-/* 	height: 100%; */
         vertical-align: top;
         width: 50% ;
 	border-bottom: 1px solid #cccccc;
-/*	border-top: 5px solid red;
-	border-right: 5px solid red;
-	border-left: 5px solid red;*/
 }	
-/* #taulaenregistrament th { height: 100%; }	 */
 #taulaenregistrament img{
 	width: 100px;
 	height: 100px;
-/* 	vertical-align: bottom; */
-/* 	text-align: left; */
 	float: left;
 	margin: 0 10px 0px 0;
         padding: 0;
-/* 	margin-bottom: 40px; */
-/* 	margin-right: 5px; */
 }
 
 .songlist-on-sidebar {
@@ -191,23 +165,33 @@ img.icon {
 #canso-tradicional-i-popular-catalana { background-color: #FF9D32 ; }
 #canso-cau-dorella { background-color: #939100 ; }
 #nadales-i-canons { background-color: #019170 ; }
+/************************************/
 
 /*** links application ***/
 #link-app .link-item {
         padding: 0 0 0 3em;
 }
+/************************************/
 
-#programmes-list ul { margin:0; padding: 0; }
-#programmes-list li { padding: 0 0 1em 0; }
+/*** articles ***********************/
+.article-la-premsa-ha-dit, .concerts, .document-promoci-concerts {
+        border-bottom: 1px solid #cccccc ;
+        margin-bottom: 10px ;
+}
 
-#programmes table.docutils {
+#article-programes-list ul { margin:0; padding: 0; }
+#article-programes-list li { padding: 0 0 1em 0; }
+#article-programes-list ul li h2 { margin: 0 ; }
+
+#article-programes-detail table{
         border: 1px solid #ea7100 ;
         width: 75%;
 }
-#programmes table.docutils ul { margin :0; padding-left: 3em; }
-#programmes table.docutils colgroup col.col-1 td {
+#article-programes-detail table ul { margin :0; padding-left: 3em; }
+#article-programes-detail table colgroup col.col-1 td {
         text-align: right ;
         color: red ;
         width: 90%;
 }
 
+/************************************/

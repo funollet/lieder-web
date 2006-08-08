@@ -7,6 +7,8 @@
  <div id="article-{{ object.section.slug }}-detail">
   <div id="article-{{ object.slug }}">
 
+<h1>{{ object.name }}</h1>
+
 {% if object.image %}
     <img src="{{ object.get_image_url }}" alt="{{ object.name }}" height="{{ object.get_image_height }}"
     width="{{ object.get_image_width }}" />

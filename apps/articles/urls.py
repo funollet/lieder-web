@@ -30,6 +30,8 @@ urlpatterns = patterns('lieder.apps.articles.views',
         dict(art_dict, template_name='articles/els-components-del-cor_detail.html') ),
     (r'^enregistraments-realizats/(?P<slug>[\w-]+)/$', 'limited_object_detail',
         dict(art_dict, template_name='articles/enregistraments_detail.html') ),
+    (r'^programes/(?P<slug>[\w-]+)/$', 'limited_object_detail',
+        dict(art_dict, template_name='articles/programes_detail.html') ),
     # Article default template.
     (r'^[\w-]+/(?P<slug>[\w-]+)/$', 'limited_object_detail', art_dict,),
 )
