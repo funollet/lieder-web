@@ -106,7 +106,19 @@ class Concert (models.Model):
         list_display = ('default_city', 'default_auditorium', 'default_start_date',
                         'default_cycle', 'default_programme')
         list_filter = ('default_city', 'default_cycle', 'default_programme')
-
+        fields = (
+            (None, {
+                'fields': ('default_start_date', 'default_city',
+                'default_auditorium', 'default_address', 'default_cycle',
+                'default_programme', 'default_tickets', 'default_price',
+                'default_organization', 'pub_date'),
+                'classes': 'liederWideInput',
+            }),
+            ('Altres', {
+                'fields': ('default_others_markup', 'slug'),
+                'classes': 'collapse',
+            }),
+        )
 
 class start_date (CharTranslation):
     parent = models.ForeignKey(Concert, edit_inline=models.TABULAR, num_in_admin=1, 

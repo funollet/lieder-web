@@ -2,6 +2,7 @@
 # Django settings for lieder project.
 
 LIEDER_ROOT = '/home/jordif/code/lieder/'
+ADMIN_MEDIA_CUSTOM_DIR = LIEDER_ROOT + 'media-admin/'
 LOCAL_DEV = True
 
 DEBUG = True
