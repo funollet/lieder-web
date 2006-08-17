@@ -74,6 +74,7 @@ class Article (models.Model):
     status = models.CharField (_('status'), maxlength=3, 
         choices=STATUS_CHOICES,
         default='drf',
+        radio_admin=True,
         )
     section = models.ForeignKey (Section,
         verbose_name=_('section'),)
