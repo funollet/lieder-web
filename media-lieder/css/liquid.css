@@ -41,8 +41,8 @@ table td tr { border: 0; padding: 0; }
     background-color: #ea7100 ;
     height: 65px;
 }
-#header-logo { float: right ;}
-#header-menu { float: left ;}
+#header .logo a img { float: right ;}
+#header .menu-horit { float: left ;}
 #header ul { margin:0 ;padding: 0; }
 #header ul li {
     padding: 6px 0 6px 10px ;
@@ -62,8 +62,8 @@ table td tr { border: 0; padding: 0; }
     width: 205px;   /* ha de coincidir amb #content margin-left */
     float: right;
 }
-#sidebar-menu ul { padding: 0; margin:0; }
-#sidebar-menu ul li {
+#sidebar .menu-vert ul { padding: 0; margin:0; }
+#sidebar .menu-vert ul li {
     padding: .5em 0 0.5em 15px ;
     background: url('/media-lieder/img/quadrattronja.png') no-repeat center left;
     line-height: 15px ;
@@ -71,11 +71,11 @@ table td tr { border: 0; padding: 0; }
     font-weight: bold;
     color: black ;
 }
-#sidebar-menu ul li a:hover {
+#sidebar .menu-vert ul li a:hover {
     font-size: 12px ;
     color: black ; 
 }
-#sidebar-menu ul li.button-active a { color: #ea7100 ; }
+#sidebar .menu-vert ul li.button-active a { color: #ea7100 ; }
 /************************************/
 
 /********* footer********************/
@@ -134,20 +134,15 @@ img.icon {
 }
 /************************************/
 
-#singers table {
-	width: 100%;
-	margin: 0px; padding: 0px;
-}
-
 /**** enregistraments ***/
-#taulaenregistrament table h3 { margin: 0; padding: 0; }
-#taulaenregistrament table { border-spacing: 10px; }
-#taulaenregistrament td{
+table.article-enregistraments-emm h3 { margin: 0; padding: 0; }
+table.article-enregistraments-emm { border-spacing: 10px; }
+table.article-enregistraments-emm td{
         vertical-align: top;
         width: 50% ;
 	border-bottom: 1px solid #cccccc;
 }	
-#taulaenregistrament img{
+table.article-enregistraments-emm img{
 	width: 100px;
 	height: 100px;
 	float: left;
@@ -155,33 +150,36 @@ img.icon {
         padding: 0;
 }
 
-.songlist-on-sidebar {
+#sidebar .songlist {
 	text-align: left;
         margin: 0;
 	padding: 15px 0px 10px 15px;
 }
-.songlist-on-sidebar a, .songlist-on-sidebar a:visited { color: #ea7100 ; }
-#passeggiata { background-color: #FFC336 ; }
-#canso-tradicional-i-popular-catalana { background-color: #FF9D32 ; }
-#canso-cau-dorella { background-color: #939100 ; }
-#nadales-i-canons { background-color: #019170 ; }
+#sidebar .songlist a, .songlist a:visited { color: #ea7100 ; }
+#sidebar .passeggiata { background-color: #FFC336 ; }
+#sidebar .canso-tradicional-i-popular-catalana { background-color: #FF9D32 ; }
+#sidebar .canso-cau-dorella { background-color: #939100 ; }
+#sidebar .nadales-i-canons { background-color: #019170 ; }
 /************************************/
 
 /*** links application ***/
-#link-app .link-item {
+#link-list .link-list-item {
         padding: 0 0 0 3em;
 }
 /************************************/
 
+/*** singers application ************/
+table.singer-emm-table {
+	width: 100%;
+	margin: 0px; padding: 0px;
+}
+/************************************/
+
 /*** articles ***********************/
-.article-la-premsa-ha-dit, .concerts, .document-promoci-concerts {
+.article-la-premsa-ha-dit-item, .concerts, .document-promoci-concerts {
         border-bottom: 1px solid #cccccc ;
         margin-bottom: 10px ;
 }
-
-#article-programes-list ul { margin:0; padding: 0; }
-#article-programes-list li { padding: 0 0 1em 0; }
-#article-programes-list ul li h2 { margin: 0 ; }
 
 #article-programes-detail table{
         border: 1px solid #ea7100 ;
@@ -193,5 +191,7 @@ img.icon {
         color: red ;
         width: 90%;
 }
+
+#article-la-direccio-list img { float: left; }
 
 /************************************/

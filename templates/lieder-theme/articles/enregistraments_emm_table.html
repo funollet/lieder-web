@@ -1,9 +1,9 @@
-<table>
+<table class="article-enregistraments-emm">
 {% for article in enreg_list %}
     {% cycle <tr>,<!--none--> %}
     <td>
       <a href="{{ article.get_absolute_url }}">
-      <img class="enregistraments" src="{{ article.get_image_url }}" alt="{{ article.name }}"
+      <img src="{{ article.get_image_url }}" alt="{{ article.name }}"
       height="{{ article.get_image_height }}" width="{{ article.get_image_width }}" />
       </a>
       <h3>{{ article.name }}</h3>

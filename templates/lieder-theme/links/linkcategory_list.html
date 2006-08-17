@@ -4,7 +4,7 @@
 
 {% block content %}
 <div id="content">
- <div id="link-app">
+ <div id="link-list">
 
 {% for categ in object_list %}
     <h2>{{ categ.catname }}</h2>
@@ -13,7 +13,7 @@
     {% endif %}
 
     {% for link in categ.link_set.all %}
-        <div class="link-item">
+        <div class="link-list-item">
 	<p>
         <strong><a href="{{ link.url }}">{{ link.name }}</a></strong>
 	{% if link.description %}

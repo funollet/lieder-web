@@ -1,23 +1,28 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block script %}
+<script type="text/javascript" src="/media-lieder/js/getElementsBySelector.js"></script>
+<script type="text/javascript" src="/media-lieder/js/linkPopUp.js"></script>
+{% endblock %}
+
 
 {% block content %}
 <div id="content">
+ <div id="article-{{ object_list.0.section.slug }}-list">
 
 {% for article in object_list %}
-<div class="article-{{article.section.slug}}">
+<div class="article-{{article.section.slug}}-item">
+    <h2><a href="{{ article.get_image_url }}">{{ article.name }}</a></h2>
     
-    <h2><a href="{{ article.get_image_url }}" onclick="window.open(this.href,'newwin',
-        'width=450,height=450'); return false;">
-    {{ article.name }}</a></h2>
-    {% if article.intro %}
+    {% if article.section.show_intro %}{% if article.intro %}
         {{ article.intro }}
-    {% endif %}
+    {% endif %}{% endif %}
 
 </div>
 {% endfor %}
 
+ </div>
 </div>
 {% endblock %}
 

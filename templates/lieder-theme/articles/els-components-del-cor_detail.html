@@ -3,6 +3,8 @@
 
 {% block content %}
 <div id="content">
+ <div id="article-{{ object.section.slug }}-detail">
+  <div id="article-{{ object.slug }}-obj-detail">
 
     {% if object.image %}
     <img src="{{ object.get_image_url }}" alt="{{ object.name }}" 
@@ -12,9 +14,9 @@
 
     {{ object.body }}
 
-    <div id="singers">
-        {% include "singers/singers_emm_table.html" %}
-    </div>
-
+    {% include "singers/singer_emm_table.html" %}
+  
+  </div>
+ </div>
 </div>
 {% endblock %}

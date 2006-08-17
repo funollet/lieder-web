@@ -18,8 +18,6 @@ urlpatterns = patterns('lieder.apps.articles.views',
     # Special templates for some sections.
     (r'^(?P<slug>enregistraments-realizats)/$', 'articles_on_section',
         dict(art_dict, template_name='articles/enregistraments_list.html', ) ),
-    (r'^(?P<slug>la-direccio)/$', 'articles_on_section',
-        dict(art_dict, template_name='articles/la-direccio.html',) ),
     (r'^(?P<slug>la-premsa-ha-dit)/$', 'articles_on_section',
         dict(art_dict, template_name='articles/premsa.html',) ),
     # Section default template.
@@ -30,8 +28,6 @@ urlpatterns = patterns('lieder.apps.articles.views',
         dict(art_dict, template_name='articles/els-components-del-cor_detail.html') ),
     (r'^enregistraments-realizats/(?P<slug>[\w-]+)/$', 'limited_object_detail',
         dict(art_dict, template_name='articles/enregistraments_detail.html') ),
-    (r'^programes/(?P<slug>[\w-]+)/$', 'limited_object_detail',
-        dict(art_dict, template_name='articles/programes_detail.html') ),
     # Article default template.
     (r'^[\w-]+/(?P<slug>[\w-]+)/$', 'limited_object_detail', art_dict,),
 )

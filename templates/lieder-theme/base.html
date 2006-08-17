@@ -16,10 +16,10 @@
 
 {% block topbar %}
 <div id="header">
- <div id="header-menu">{% include "menus/get-menu-horit.html" %}</div>
- <a href="/">
-   <img id="header-logo" src="/media-lieder/img/logotronja.png" alt='logotronja' height="65" width="255" />
- </a>
+ <div class="menu-horit">{% include "menus/get-menu-horit.html" %}</div>
+ <div class="logo"><a href="/">
+   <img src="/media-lieder/img/logotronja.png" alt="Logo Lieder" height="65" width="255" />
+ </a></div>
 </div>
 {% endblock %}
 
@@ -29,7 +29,7 @@
 
 {% block sidebar %}
 <div id="sidebar">
- <div id="sidebar-menu">
+ <div class="menu-vert">
   {% include "menus/get-menu-vert.html" %}
  </div>
 </div>

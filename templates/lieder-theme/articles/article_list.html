@@ -4,13 +4,24 @@
 {% block content %}
 <div id="content">
  <div id="article-{{ object_list.0.section.slug }}-list">
-<ul>
+
 {% for article in object_list %}
-    <li class="article-{{ article.section.slug }}-item">
+<div class="article-{{ article.section.slug }}-item">
     <h2><a href="{{ article.get_absolute_url }}">{{ article.name }}</a></h2>
-    </li>
+    
+    {% if article.section.show_image %}
+        {% if article.image %}
+        <img src="{{ article.get_image_url }}" alt="{{ article.name }}" 
+        height="{{ article.get_image_height }}" width="{{ article.get_image_width }}" />
+        {% endif %}
+    {% endif %}
+    
+    {% if article.section.show_intro %}{% if article.intro %}
+        {{ article.intro }}
+    {% endif %}{% endif %}
+    
+</div>
 {% endfor %}
-</ul>
 
  </div>
 </div>

@@ -41,6 +41,17 @@ class Section (models.Model):
     def get_absolute_url (self):
         pass
 
+    def show_image (self):
+        if self.slug == 'la-direccio':
+            return True
+        else:
+            return False
+    
+    def show_intro (self):
+        if self.slug in ['la-direccio', 'la-premsa-ha-dit']:
+            return True
+        else:
+            return False
 
 
 class SecName (CharTranslation):
@@ -147,6 +158,14 @@ class Article (models.Model):
 
     def get_absolute_url (self):
         pass
+
+    def show_image (self):
+        return True
+    
+    def show_title (self):
+        if self.section.slug == 'programes' :
+            return True
+        return False
 
     objects = models.Manager()
     public_objects = PublicStatusManager()
