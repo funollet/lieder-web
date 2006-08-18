@@ -2,6 +2,7 @@
 # Django settings for lieder project.
 
 LIEDER_ROOT = '/home/jordif/code/lieder/'
+SITE_URL = 'http://localhost:8000'  # required by verdjnlib.context_processors
 ADMIN_MEDIA_CUSTOM_DIR = LIEDER_ROOT + 'media-admin/'
 LOCAL_DEV = True
 
@@ -69,6 +70,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.request",
+    "lieder.apps.verdjnlib.context_processors.siteroot",
 )
 
 ROOT_URLCONF = 'lieder.settings.urls'

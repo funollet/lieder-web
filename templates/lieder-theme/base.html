@@ -6,7 +6,7 @@
 <head>
 {% block meta %} <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> {% endblock %}
 {% block title %} <title>{% trans "Cor de Cambra Lieder C&agrave;mera" %}</title> {% endblock %}
-{% block style %} <link href="/media-lieder/css/liquid.css" rel="stylesheet" type="text/css" /> {% endblock %}
+{% block style %} <link href="{{media_url}}css/liquid.css" rel="stylesheet" type="text/css" /> {% endblock %}
 {% block script %}{% endblock %}
 </head>
 
@@ -17,8 +17,8 @@
 {% block topbar %}
 <div id="header">
  <div class="menu-horit">{% include "menus/get-menu-horit.html" %}</div>
- <div class="logo"><a href="/">
-   <img src="/media-lieder/img/logotronja.png" alt="Logo Lieder" height="65" width="255" />
+ <div class="logo"><a href="{{ site_url }}">
+   <img src="{{media_url}}img/logotronja.png" alt="Logo Lieder" height="65" width="255" />
  </a></div>
 </div>
 {% endblock %}

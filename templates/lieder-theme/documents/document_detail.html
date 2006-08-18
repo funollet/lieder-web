@@ -4,7 +4,7 @@
 {% block content %}
 	
         <h2><a href="{{ object.get_file_url }}">
-        <img class="icon" src="/media-lieder/img/pictopremsa.png" alt="pictopremsa" width="21" height="21" />
+        <img class="icon" src="{{media_url}}img/pictopremsa.png" alt="pictopremsa" width="21" height="21" />
         {{ object.name }}</a></h2>
 	{% if object.description %}
             {{ object.description }}
