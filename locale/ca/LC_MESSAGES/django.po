@@ -1,0 +1,588 @@
+# translation of django.po to Catalan
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+#
+# Jordi Funollet <jordi.f@ati.es>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: django\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-11 18:04+0200\n"
+"PO-Revision-Date: 2006-09-11 18:19+0200\n"
+"Last-Translator: Jordi Funollet <jordi.f@ati.es>\n"
+"Language-Team: Catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.2\n"
+
+#: apps/misc/misc.py:7
+msgid ""
+"Use <a href=\"http://daringfireball.net/projects/markdown/basics\">Markdown</"
+"a> Syntax"
+msgstr ""
+"Empreu la sintaxis <a href=\"http://daringfireball.net/projects/markdown/"
+"basics\">Markdown</a>"
+
+#: apps/misc/misc.py:8
+msgid ""
+"Use <a href=\"http://daringfireball.net/projects/markdown/basics\">Textile</"
+"a> Syntax"
+msgstr ""
+"Empreu la sintaxis <a href=\"http://daringfireball.net/projects/markdown/"
+"basics\">Textile</a>"
+
+#: apps/misc/mlang.py:22 apps/misc/mlang.py:25 apps/misc/mlang.py:40
+#: apps/misc/mlang.py:43 archive/cms/models/cms.py:51
+#: archive/nesh/utils/i18n.py:43 archive/nesh/utils/i18n.py:46
+#: archive/nesh/utils/i18n.py:70 archive/nesh/utils/i18n.py:72
+msgid "language"
+msgstr "llengua"
+
+#: apps/misc/mlang.py:28 archive/nesh/utils/i18n.py:49
+#: archive/nesh/utils/i18n.py:74 archive/text_store/models/text_store.py:45
+msgid "text"
+msgstr "text"
+
+#: apps/misc/mlang.py:45
+msgid "text raw"
+msgstr "text pla"
+
+#: apps/misc/mlang.py:46
+msgid "text markup"
+msgstr "text markup"
+
+#: apps/links/models.py:10 apps/links/models.py:15 apps/links/models.py:84
+#: apps/links/models.py:89 apps/menus/models.py:9 apps/menus/models.py:26
+#: apps/menus/models.py:31 apps/singers/models.py:14
+#: apps/programmes/models.py:9 apps/programmes/models.py:14
+#: apps/documents/models.py:17 apps/documents/models.py:22
+#: apps/documents/models.py:92 apps/documents/models.py:97
+#: apps/articles/models.py:17 apps/articles/models.py:22
+#: apps/articles/models.py:82 apps/articles/models.py:87
+#: archive/cms/models/cms.py:16
+msgid "name"
+msgstr "nom"
+
+#: apps/links/models.py:18 apps/links/models.py:19 apps/links/models.py:27
+#: apps/links/models.py:91 apps/links/models.py:92 apps/links/models.py:100
+#: apps/documents/models.py:24 apps/documents/models.py:25
+#: apps/documents/models.py:33 apps/documents/models.py:99
+#: apps/documents/models.py:100 apps/documents/models.py:108
+msgid "description"
+msgstr "descripció"
+
+#: apps/links/models.py:30 apps/links/models.py:108 apps/menus/models.py:10
+#: apps/menus/models.py:37 apps/programmes/models.py:61
+#: apps/documents/models.py:35 apps/documents/models.py:118
+#: apps/articles/models.py:29 apps/articles/models.py:112
+#: archive/cms/models/cms.py:18 archive/cms/models/cms.py:69
+msgid "publication date"
+msgstr "data de publicació"
+
+#: apps/links/models.py:31 apps/links/models.py:109
+#: apps/programmes/models.py:62 apps/documents/models.py:36
+#: apps/documents/models.py:119 apps/concerts/models.py:86
+#: apps/articles/models.py:24 apps/articles/models.py:113
+#: archive/cms/models/cms.py:65
+msgid "permalink"
+msgstr "enllaç permanent"
+
+#: apps/links/models.py:34 apps/programmes/models.py:65
+#: apps/documents/models.py:39 apps/concerts/models.py:88
+#: apps/articles/models.py:27 apps/articles/models.py:116
+msgid "Name to be linked"
+msgstr "Nom enllaçable"
+
+#: apps/links/models.py:39 apps/links/models.py:103
+#: apps/documents/models.py:43 apps/documents/models.py:111
+msgid "category"
+msgstr "categoria"
+
+#: apps/links/models.py:40
+msgid "link categories"
+msgstr "categories d'enllaços"
+
+#: apps/links/models.py:45 apps/links/models.py:127
+#: apps/programmes/models.py:93 apps/documents/models.py:49
+#: apps/documents/models.py:137 apps/articles/models.py:145
+msgid "Advanced"
+msgstr "Avançat"
+
+#: apps/links/models.py:67 apps/programmes/models.py:101
+msgid "translation for name"
+msgstr "traducció de nom"
+
+#: apps/links/models.py:68 apps/programmes/models.py:102
+msgid "translations for names"
+msgstr "traduccions de noms"
+
+#: apps/links/models.py:75
+msgid "translation for description"
+msgstr "traducció de descripció"
+
+#: apps/links/models.py:76
+msgid "translations for descriptions"
+msgstr "traduccions de descripcions"
+
+#: apps/links/models.py:107 apps/menus/models.py:33
+msgid "url"
+msgstr "url"
+
+#: apps/links/models.py:116
+msgid "link"
+msgstr "enllaç"
+
+#: apps/links/models.py:117
+msgid "links"
+msgstr "enllaços"
+
+#: apps/links/models.py:147 apps/menus/models.py:76
+#: apps/documents/models.py:70 apps/documents/models.py:157
+#: apps/articles/models.py:61 apps/articles/models.py:180
+msgid "translation for Name"
+msgstr "traducció de Nom"
+
+#: apps/links/models.py:148 apps/menus/models.py:77
+#: apps/documents/models.py:71 apps/documents/models.py:158
+#: apps/articles/models.py:62 apps/articles/models.py:181
+msgid "translations for Names"
+msgstr "traduccions de Noms"
+
+#: apps/links/models.py:155 apps/documents/models.py:78
+#: apps/documents/models.py:165
+msgid "translation for Description"
+msgstr "traducció de Descripció"
+
+#: apps/links/models.py:156 apps/documents/models.py:79
+#: apps/documents/models.py:166
+msgid "translations for Descriptions"
+msgstr "traduccions de Descripcions"
+
+#: apps/menus/models.py:13 apps/menus/models.py:36
+msgid "menu"
+msgstr "menú"
+
+#: apps/menus/models.py:14
+msgid "menus"
+msgstr "menús"
+
+#: apps/menus/models.py:35
+msgid "local url"
+msgstr "url local"
+
+#: apps/menus/models.py:40
+msgid "menu item"
+msgstr "element de menú"
+
+#: apps/menus/models.py:41
+msgid "menu items"
+msgstr "elements dels menús"
+
+#: apps/singers/models.py:6
+msgid "sopranos"
+msgstr "sopranos"
+
+#: apps/singers/models.py:7
+msgid "altos"
+msgstr "contralts"
+
+#: apps/singers/models.py:8
+msgid "tenors"
+msgstr "tenors"
+
+#: apps/singers/models.py:9
+msgid "basses"
+msgstr "baixos"
+
+#: apps/singers/models.py:15
+msgid "voice"
+msgstr "veu"
+
+#: apps/singers/models.py:22
+msgid "singer"
+msgstr "cantaire"
+
+#: apps/singers/models.py:23
+msgid "singers"
+msgstr "cantaires"
+
+#: apps/programmes/models.py:16 apps/programmes/models.py:17
+#: apps/programmes/models.py:25 apps/articles/models.py:89
+#: apps/articles/models.py:90
+msgid "introduction"
+msgstr "introducció"
+
+#: apps/programmes/models.py:27 apps/programmes/models.py:28
+#: apps/programmes/models.py:36
+msgid "first part"
+msgstr "primera part"
+
+#: apps/programmes/models.py:38 apps/programmes/models.py:39
+#: apps/programmes/models.py:47
+msgid "second part"
+msgstr "segona part"
+
+#: apps/programmes/models.py:49 apps/programmes/models.py:50
+#: apps/programmes/models.py:58
+msgid "footer"
+msgstr "peu"
+
+#: apps/programmes/models.py:82 apps/concerts/models.py:46
+#: apps/concerts/models.py:51
+msgid "programme"
+msgstr "programa"
+
+#: apps/programmes/models.py:83
+msgid "programmes"
+msgstr "programes"
+
+#: apps/programmes/models.py:87 apps/articles/models.py:135
+msgid "Introduction"
+msgstr "Introducció"
+
+#: apps/programmes/models.py:91
+msgid "Footer"
+msgstr "Peu"
+
+#: apps/programmes/models.py:109 apps/articles/models.py:188
+msgid "translation for introduction"
+msgstr "traducció de introducció"
+
+#: apps/programmes/models.py:110
+msgid "translations for introduction"
+msgstr "traduccions de introducció"
+
+#: apps/programmes/models.py:117
+msgid "translation for First_part"
+msgstr "traducció de Primera_part"
+
+#: apps/programmes/models.py:118
+msgid "translations for First_parts"
+msgstr "traducció de Primeres_parts"
+
+#: apps/programmes/models.py:125
+msgid "translation for Second_part"
+msgstr "traducció de Segona_part"
+
+#: apps/programmes/models.py:126
+msgid "translations for Second_parts"
+msgstr "traduccions de Segones_parts"
+
+#: apps/programmes/models.py:133
+msgid "translation for Footer"
+msgstr "traduccions de Peu"
+
+#: apps/programmes/models.py:134
+msgid "translations for Footers"
+msgstr "traduccions de Peus"
+
+#: apps/documents/models.py:44
+msgid "document categories"
+msgstr "categories de documents"
+
+#: apps/documents/models.py:115 apps/documents/models.py:126
+msgid "document"
+msgstr "document"
+
+#: apps/documents/models.py:127
+msgid "documents"
+msgstr "documents"
+
+#: apps/concerts/models.py:9
+msgid "Unpublication date"
+msgstr "Data de despublicació"
+
+#: apps/concerts/models.py:11
+msgid "concert start date"
+msgstr "data d'inici del concert"
+
+#: apps/concerts/models.py:16
+msgid "start date"
+msgstr "data d'inici"
+
+#: apps/concerts/models.py:18 apps/concerts/models.py:23
+msgid "city"
+msgstr "ciutat"
+
+#: apps/concerts/models.py:25 apps/concerts/models.py:30
+msgid "auditorium"
+msgstr "auditori"
+
+#: apps/concerts/models.py:32 apps/concerts/models.py:37
+msgid "address"
+msgstr "adreça"
+
+#: apps/concerts/models.py:39 apps/concerts/models.py:44
+msgid "cycle"
+msgstr "cicle"
+
+#: apps/concerts/models.py:53 apps/concerts/models.py:58
+msgid "tickets"
+msgstr "entrades"
+
+#: apps/concerts/models.py:60 apps/concerts/models.py:65
+msgid "price"
+msgstr "preu"
+
+#: apps/concerts/models.py:67 apps/concerts/models.py:72
+msgid "organization"
+msgstr "organització"
+
+#: apps/concerts/models.py:74 apps/concerts/models.py:75
+#: apps/concerts/models.py:83
+msgid "others"
+msgstr "altres"
+
+#: apps/concerts/models.py:103
+msgid "concert"
+msgstr "concert "
+
+#: apps/concerts/models.py:104
+msgid "concerts"
+msgstr "concerts"
+
+#: apps/concerts/models.py:127
+msgid "translation for start_date"
+msgstr "traducció de data d'inici"
+
+#: apps/concerts/models.py:128
+msgid "translations for start_dates"
+msgstr "traduccions de dates d'inici"
+
+#: apps/concerts/models.py:135
+msgid "translation for city"
+msgstr "traducció de ciutat"
+
+#: apps/concerts/models.py:136
+msgid "translations for citys"
+msgstr "traduccions de ciutats"
+
+#: apps/concerts/models.py:142
+msgid "translation for auditorium"
+msgstr "traducció d'auditori"
+
+#: apps/concerts/models.py:143
+msgid "translations for auditoriums"
+msgstr "traduccions d'auditoris"
+
+#: apps/concerts/models.py:149
+msgid "translation for address"
+msgstr "traducció d'adreça"
+
+#: apps/concerts/models.py:150
+msgid "translations for address"
+msgstr "traduccions d'adreces"
+
+#: apps/concerts/models.py:156
+msgid "translation for cycle"
+msgstr "traducció de cicle"
+
+#: apps/concerts/models.py:157
+msgid "translations for cycles"
+msgstr "traduccions de cicles"
+
+#: apps/concerts/models.py:163
+msgid "translation for programme"
+msgstr "traduccions de programes"
+
+#: apps/concerts/models.py:164
+msgid "translations for programmes"
+msgstr "traduccions de programes"
+
+#: apps/concerts/models.py:170
+msgid "translation for tickets"
+msgstr "traducció d'entrades"
+
+#: apps/concerts/models.py:171
+msgid "translations for tickets"
+msgstr "traduccions d'entrades"
+
+#: apps/concerts/models.py:177
+msgid "translation for price"
+msgstr "traducció de preu"
+
+#: apps/concerts/models.py:178
+msgid "translations for prices"
+msgstr "traduccions de preus"
+
+#: apps/concerts/models.py:184
+msgid "translation for organization"
+msgstr "traduccions d'organització"
+
+#: apps/concerts/models.py:185
+msgid "translations for organizations"
+msgstr "traduccions d'organitzacions"
+
+#: apps/concerts/models.py:192
+msgid "translation for others"
+msgstr "traducció d'altres"
+
+#: apps/concerts/models.py:193
+msgid "translations for others"
+msgstr "traduccions d'altres"
+
+#: apps/articles/models.py:8 archive/cms/models/cms.py:7
+msgid "draft"
+msgstr "esborrany"
+
+#: apps/articles/models.py:9 archive/cms/models/cms.py:8
+msgid "revision"
+msgstr "revisió"
+
+#: apps/articles/models.py:10 archive/cms/models/cms.py:9
+msgid "public"
+msgstr "públic"
+
+#: apps/articles/models.py:11 archive/cms/models/cms.py:10
+msgid "archived"
+msgstr "arxivat"
+
+#: apps/articles/models.py:12 archive/cms/models/cms.py:11
+msgid "internal"
+msgstr "intern"
+
+#: apps/articles/models.py:33 apps/articles/models.py:80
+#: archive/cms/models/cms.py:23 archive/cms/models/cms.py:48
+msgid "section"
+msgstr "secció"
+
+#: apps/articles/models.py:34 archive/cms/models/cms.py:24
+msgid "sections"
+msgstr "seccions"
+
+#: apps/articles/models.py:74 archive/cms/models/cms.py:42
+msgid "status"
+msgstr "estat"
+
+#: apps/articles/models.py:98
+msgid "intro"
+msgstr "intro"
+
+#: apps/articles/models.py:100 apps/articles/models.py:101
+#: apps/articles/models.py:109 archive/cms/models/cms.py:59
+#: archive/cms/models/cms.py:61 archive/text_store/models/text_store.py:24
+msgid "body"
+msgstr "cos"
+
+#: apps/articles/models.py:118
+msgid "image"
+msgstr "imatge"
+
+#: apps/articles/models.py:124 archive/cms/models/cms.py:74
+msgid "article"
+msgstr "article"
+
+#: apps/articles/models.py:125 archive/cms/models/cms.py:75
+msgid "articles"
+msgstr "articles"
+
+#: apps/articles/models.py:139
+msgid "Body"
+msgstr "Cos"
+
+#: apps/articles/models.py:189
+msgid "translations for introductions"
+msgstr "traduccions d'introduccions"
+
+#: apps/articles/models.py:196
+msgid "translation for Body"
+msgstr "traducció per Cos"
+
+#: apps/articles/models.py:197
+msgid "translations for Bodys"
+msgstr "traduccions per Cossos"
+
+#: archive/cms/models/cms.py:53
+msgid "title"
+msgstr "títol"
+
+#: archive/cms/models/cms.py:54 archive/cms/models/cms.py:57
+msgid "excerpt"
+msgstr "resum"
+
+#: archive/text_store/models/text_store.py:13
+#: archive/text_store/models/text_store.py:17
+msgid "text headline"
+msgstr "capçalera del text"
+
+#: archive/text_store/models/text_store.py:22
+msgid "translation for text headline"
+msgstr "traducció de capçalera del text"
+
+#: archive/text_store/models/text_store.py:31
+#: archive/text_store/models/text_store.py:75
+msgid "translation for text body"
+msgstr "traducció de cos del text"
+
+#: archive/text_store/models/text_store.py:33
+msgid "slug"
+msgstr "slug"
+
+#: archive/text_store/models/text_store.py:46
+msgid "texts"
+msgstr "textos"
+
+#: archive/text_store/models/text_store.py:67
+msgid "translation for text name"
+msgstr "traducció de nom del text"
+
+#: archive/text_store/models/text_store.py:68
+msgid "translations for text names"
+msgstr "traduccions de noms del text"
+
+#: archive/text_store/models/text_store.py:76
+msgid "translations for text bodies"
+msgstr "traduccions de cossos del text"
+
+#: templates/lieder-theme/base.html:8
+msgid "Cor de Cambra Lieder C&agrave;mera"
+msgstr "Cor de Cambra Lieder C&agrave;mera"
+
+#: templates/lieder-theme/admin/base_site.html:4
+msgid "Django site admin"
+msgstr "Administració de la web de Django"
+
+#: templates/lieder-theme/admin/base_site.html:7
+msgid "Lieder WebSite administration"
+msgstr "Administració del Web Lieder"
+
+#: templates/lieder-theme/singers/singer_emm_table.html:8
+msgid "Sopranos"
+msgstr "Sopranos"
+
+#: templates/lieder-theme/singers/singer_emm_table.html:9
+msgid "Altos"
+msgstr "Contralts"
+
+#: templates/lieder-theme/singers/singer_emm_table.html:10
+msgid "Tenors"
+msgstr "Tenors"
+
+#: templates/lieder-theme/singers/singer_emm_table.html:11
+msgid "Basses"
+msgstr "Baixos"
+
+#: templates/lieder-theme/concerts/concert_detail.html:16
+#: templates/lieder-theme/concerts/concert_list.html:22
+msgid "Programme"
+msgstr "Programa"
+
+#: templates/lieder-theme/concerts/concert_detail.html:39
+#: templates/lieder-theme/concerts/concert_list.html:42
+msgid "Price"
+msgstr "Preu"
+
+#: templates/lieder-theme/concerts/concert_detail.html:42
+#: templates/lieder-theme/concerts/concert_list.html:45
+msgid "Tickets"
+msgstr "Entrades"
+
+#: templates/lieder-theme/concerts/concert_list.html:26
+msgid "Cycle"
+msgstr "Cicle"
+
+#: templates/lieder-theme/concerts/concert_list.html:29
+msgid "Organization"
+msgstr "Organització"
+
