@@ -81,7 +81,8 @@ table td tr { border: 0; padding: 0; }
 /********* footer********************/
 .clearing { /* IE-hack; avoids #container and #footer merging */
     clear: both;
-    border:0; margin:0; padding:0;
+    border:0; padding:0;
+    margin: 0 0 10px 0; 
     height: 0px;
     line-height: 0px;             /* IE likes this :-( */
 }
@@ -135,19 +136,32 @@ img.icon {
 /************************************/
 
 /**** enregistraments ***/
-table.article-enregistraments-emm h3 { margin: 0; padding: 0; }
-table.article-enregistraments-emm { border-spacing: 10px; }
-table.article-enregistraments-emm td{
-        vertical-align: top;
-        width: 50% ;
-	border-bottom: 1px solid #cccccc;
+ul.article-enregistraments-emm { 
+    padding: 0; margin: 0;
+}
+ul.article-enregistraments-emm li {
+    width: 47% ;
+    height: 190px ;
+    vertical-align: top;
+    border-bottom: 1px solid #cccccc;
+    margin: 0; padding: 0;
 }	
-table.article-enregistraments-emm img{
-	width: 100px;
-	height: 100px;
-	float: left;
-	margin: 0 10px 0px 0;
-        padding: 0;
+ul.article-enregistraments-emm li.senar {
+    float: left ;
+    padding: 10px 10px 0 0 ;
+}
+ul.article-enregistraments-emm li.parell {
+    float: right ;
+    padding: 10px 0 0 0 ;
+}
+
+ul.article-enregistraments-emm li h3 { margin: 0; padding: 0; }
+ul.article-enregistraments-emm li a img{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 0 10px 0px 0;
+    padding: 0;
 }
 
 #sidebar .songlist {
@@ -155,7 +169,10 @@ table.article-enregistraments-emm img{
         margin: 0;
 	padding: 15px 0px 10px 15px;
 }
-#sidebar .songlist a, .songlist a:visited { color: #ea7100 ; }
+#sidebar .songlist a, .songlist a:visited {
+    font-weight: bold ;
+    text-decoration: underline ; 
+}
 #sidebar .passeggiata { background-color: #FFC336 ; }
 #sidebar .canso-tradicional-i-popular-catalana { background-color: #FF9D32 ; }
 #sidebar .canso-cau-dorella { background-color: #939100 ; }

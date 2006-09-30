@@ -1,14 +1,12 @@
-<table class="article-enregistraments-emm">
+<ul class="article-enregistraments-emm">
 {% for article in enreg_list %}
-    {% cycle <tr>,<!--none--> %}
-    <td>
+    <li class="{% cycle senar,parell %}">
       <a href="{{ article.get_absolute_url }}">
-      <img src="{{ article.get_image_url }}" alt="{{ article.name }}"
-      height="{{ article.get_image_height }}" width="{{ article.get_image_width }}" />
+        <img src="{{ article.get_image_url }}" alt="{{ article.name }}"
+        height="{{ article.get_image_height }}" width="{{ article.get_image_width }}" />
       </a>
       <h3>{{ article.name }}</h3>
       {% if article.intro %}{{ article.intro }}{% endif %}
-    </td>
-    {% cycle <!--none-->,</tr> %}
+    </li>
 {% endfor %}
-</table>
+</ul>
