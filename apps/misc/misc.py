@@ -35,6 +35,7 @@ def parse_markup (obj):
     # Choose a markup parser.
     if settings.MARKUP=='docutils':
         from docutils.core import publish_parts
+	from lieder.apps.misc.rst2django import Writer
         
         # commandline troubleshooting
         # echo ç | rst2html -o ascii --output-encoding-error-handler xmlcharrefreplace -
@@ -43,8 +44,9 @@ def parse_markup (obj):
 #             'input_encoding': 'unicode',
 #             'output_encoding': 'unicode',
 #             'output-encoding-error-handler': 'xmlcharrefreplace'}
+	djangowriter=Writer()
         overrides = {'initial_header_level': 2 }
-        parse = lambda s: publish_parts (source=s, writer_name="rst2django",
+        parse = lambda s: publish_parts (source=s, writer=djangowriter,
             settings_overrides=overrides)["fragment"].encode('utf-8')
     elif settings.MARKUP == 'markdown':
         import markdown
