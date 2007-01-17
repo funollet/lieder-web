@@ -6,7 +6,6 @@
 {% endblock %}
 {% block stylesheet %}{% admin_media_prefix %}css/forms.css{% endblock %}
 {% block extrastyle %}{{ block.super }}
-<link rel="stylesheet" type="text/css" href="{{ media_url }}css/admin/concerts.css" />
 <link rel="stylesheet" type="text/css" href="{{ media_url }}css/admin/forms_overwrite.css" />
 {% endblock %}
 {% block coltype %}{% if ordered_objects %}colMS{% else %}colM{% endif %}{% endblock %}
