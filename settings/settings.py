@@ -3,7 +3,6 @@
 
 LIEDER_ROOT = '/home/jordif/code/lieder/'
 SITE_URL = 'http://localhost:8000'  # required by verdjnlib.context_processors
-ADMIN_MEDIA_CUSTOM_DIR = LIEDER_ROOT + 'media-admin/'
 LOCAL_DEV = True
 
 DEBUG = True
