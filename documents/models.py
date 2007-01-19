@@ -1,18 +1,10 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from misc import misc
+from misc import markup
 from misc.mlang import CharTranslation, TextTranslation, CHOICES
 from misc import mlang
 
 class DocumentCategory (models.Model):
-#     name = models.CharField (_('name'),
-#         maxlength=200,
-#         )
-#     description = models.TextField (_('description'), editable=False,)
-#     description_markup = models.TextField (_('description'), 
-#         blank=True,
-#         help_text = misc.MARKUP_HELP,
-#         )
 
     default_catname = models.CharField (_('name'), maxlength=200, )
 
@@ -24,7 +16,7 @@ class DocumentCategory (models.Model):
     default_catdescription= models.TextField (_('description'), editable=False,)
     default_catdescription_markup = models.TextField (_('description'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def catdescription(self):
@@ -54,8 +46,8 @@ class DocumentCategory (models.Model):
         return self.default_catname
 
     def save (self):
-        from misc import misc
-        misc.parse_markup (self)
+        from misc import markup
+        markup.parse_markup (self)
         super(DocumentCategory, self).save()
 
     def get_absolute_url (self):
@@ -83,12 +75,7 @@ class CatDescription (TextTranslation):
 
 
 class Document (models.Model):
-#     name = models.CharField (_('document short name'), maxlength=200,
-#         )
-#     description = models.TextField (_('description'), editable=False,)
-#     description_markup = models.TextField (_('description'), 
-#         help_text = misc.MARKUP_HELP, blank=True, )
-    
+
     default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
@@ -99,7 +86,7 @@ class Document (models.Model):
     default_description= models.TextField (_('description'), editable=False,)
     default_description_markup = models.TextField (_('description'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def description(self):
@@ -142,8 +129,8 @@ class Document (models.Model):
         return self.default_name
     
     def save (self):
-        from misc import misc
-        misc.parse_markup (self)
+        from misc import markup
+        markup.parse_markup (self)
         super(Document, self).save()
 
     def get_absolute_url (self):

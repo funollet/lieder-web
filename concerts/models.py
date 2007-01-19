@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from misc import misc
+from misc import markup
 from misc.mlang import CharTranslation, TextTranslation, CHOICES
 from misc import mlang
 
@@ -74,7 +74,7 @@ class Concert (models.Model):
     default_others= models.TextField (_('others'), editable=False,)
     default_others_markup = models.TextField (_('others'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def others(self):
@@ -92,8 +92,8 @@ class Concert (models.Model):
         return ' :: '.join((self.default_city, self.default_start_date, ))
 
     def save (self):
-        from misc import misc
-        misc.parse_markup(self)
+        from misc import markup
+        markup.parse_markup(self)
         super(Concert, self).save()
 
     def get_absolute_url (self):

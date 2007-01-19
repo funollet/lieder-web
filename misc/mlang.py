@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 #import re
-from misc import misc
+from misc import markup
 
 CHOICES = []
 LANGUAGES_DICT = dict(settings.LANGUAGES)
@@ -44,15 +44,15 @@ class TextTranslation(models.Model):
 
     text = models.TextField(_('text raw'), editable=False, blank=True,)
     text_markup = models.TextField(_('text markup'), core=True,
-        help_text = misc.MARKUP_HELP,)
+        help_text = markup.MARKUP_HELP,)
 
     def __str__(self):
         lang = self.language
         return '[%s] %s' % (self.language, self.text_markup)
 
     def save (self):
-        from misc import misc
-        misc.parse_markup (self)
+        from misc import markup
+        markup.parse_markup (self)
         super (TextTranslation, self).save()
 
 

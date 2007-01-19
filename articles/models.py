@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from misc import misc
+from misc import markup
 from misc.mlang import CharTranslation, TextTranslation, CHOICES
 from misc import mlang
 
@@ -89,7 +89,7 @@ class Article (models.Model):
     default_intro= models.TextField (_('introduction'), editable=False,)
     default_intro_markup = models.TextField (_('introduction'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def intro(self):
@@ -100,7 +100,7 @@ class Article (models.Model):
     default_body= models.TextField (_('body'), editable=False,)
     default_body_markup = models.TextField (_('body'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def body(self):
@@ -153,8 +153,8 @@ class Article (models.Model):
         return self.default_name
     
     def save (self):
-        from misc import misc
-        misc.parse_markup (self)
+        from misc import markup
+        markup.parse_markup (self)
         super(Article, self).save()
 
     def get_absolute_url (self):

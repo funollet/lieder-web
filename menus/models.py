@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from misc import misc
+from misc import markup
 from misc.mlang import CharTranslation, TextTranslation, CHOICES
 from misc import mlang
 

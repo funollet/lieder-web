@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from misc import misc
+from misc import markup
 from misc.mlang import CharTranslation, TextTranslation, CHOICES
 from misc import mlang
 
@@ -16,7 +16,7 @@ class Programme (models.Model):
     default_intro= models.TextField (_('introduction'), editable=False,)
     default_intro_markup = models.TextField (_('introduction'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def intro(self):
@@ -27,7 +27,7 @@ class Programme (models.Model):
     default_first_part= models.TextField (_('first part'), editable=False,)
     default_first_part_markup = models.TextField (_('first part'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def first_part(self):
@@ -38,7 +38,7 @@ class Programme (models.Model):
     default_second_part= models.TextField (_('second part'), editable=False,)
     default_second_part_markup = models.TextField (_('second part'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def second_part(self):
@@ -49,7 +49,7 @@ class Programme (models.Model):
     default_footer= models.TextField (_('footer'), editable=False,)
     default_footer_markup = models.TextField (_('footer'), 
         blank=True,
-        help_text = misc.MARKUP_HELP,
+        help_text = markup.MARKUP_HELP,
         )
 
     def footer(self):
@@ -67,8 +67,8 @@ class Programme (models.Model):
 
 
     def save (self):
-        from misc import misc
-        misc.parse_markup (self)
+        from misc import markup
+        markup.parse_markup (self)
         super(Programme, self).save()
         
     def __str__ (self):
