@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from lieder.apps.links.models import Link, LinkCategory
+from links.models import Link, LinkCategory
 
 link_dict = {'queryset': Link.objects.all() }
 link_dict_slug = dict(link_dict, slug_field='slug')

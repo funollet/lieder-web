@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from lieder.apps.misc import misc
-from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
-from lieder.apps.misc import mlang
+from misc import misc
+from misc.mlang import CharTranslation, TextTranslation, CHOICES
+from misc import mlang
 
 
 class Menu (models.Model):
@@ -26,7 +26,7 @@ class MenuItem (models.Model):
     default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
     

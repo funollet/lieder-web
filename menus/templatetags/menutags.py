@@ -1,5 +1,5 @@
 from django import template
-from lieder.apps.menus.models import Menu,MenuItem
+from menus.models import Menu,MenuItem
 
 register = template.Library()
 

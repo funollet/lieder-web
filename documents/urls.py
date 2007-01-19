@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from lieder.apps.documents.models import Document, DocumentCategory
+from documents.models import Document, DocumentCategory
 
 obj_dict = { 'queryset': Document.objects.all() }
 obj_dict_slug =  dict(obj_dict, slug_field='slug',)

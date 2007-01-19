@@ -35,7 +35,7 @@ def parse_markup (obj):
     # Choose a markup parser.
     if settings.MARKUP=='docutils':
         from docutils.core import publish_parts
-	from lieder.apps.misc.rst2django import Writer
+	from misc.rst2django import Writer
         
         # commandline troubleshooting
         # echo ç | rst2html -o ascii --output-encoding-error-handler xmlcharrefreplace -

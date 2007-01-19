@@ -1,5 +1,5 @@
 from django import template
-from lieder.apps.articles.models import Section
+from articles.models import Section
 
 register = template.Library()
 

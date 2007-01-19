@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from lieder.apps.misc import misc
-from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
-from lieder.apps.misc import mlang
+from misc import misc
+from misc.mlang import CharTranslation, TextTranslation, CHOICES
+from misc import mlang
 
 
 class Concert (models.Model):
@@ -11,63 +11,63 @@ class Concert (models.Model):
     default_start_date = models.CharField (_('concert start date'), maxlength=200, )
 
     def start_date(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'start_date')
     start_date.short_description = _('start date')
     
     default_city = models.CharField (_('city'), maxlength=200, )
 
     def city(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'city')
     city.short_description = _('city')
 
     default_auditorium = models.CharField (_('auditorium'), maxlength=200, blank=True, )
 
     def auditorium(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'auditorium')
     auditorium.short_description = _('auditorium')
 
     default_address = models.CharField (_('address'), maxlength=200, blank=True, )
 
     def address(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'address')
     address.short_description = _('address')
 
     default_cycle = models.CharField (_('cycle'), maxlength=200, blank=True, )
 
     def cycle(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'cycle')
     cycle.short_description = _('cycle')
 
     default_programme = models.CharField (_('programme'), maxlength=200, blank=True, )
 
     def programme(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'programme')
     programme.short_description = _('programme')
 
     default_tickets = models.CharField (_('tickets'), maxlength=200, blank=True, )
 
     def tickets(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'tickets')
     tickets.short_description = _('tickets')
 
     default_price = models.CharField (_('price'), maxlength=200, blank=True, )
 
     def price(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'price')
     price.short_description = _('price')
 
     default_organization = models.CharField (_('organization'), maxlength=200, blank=True, )
 
     def organization(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'organization')
     organization.short_description = _('organization')
 
@@ -78,7 +78,7 @@ class Concert (models.Model):
         )
 
     def others(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'others')
     others.short_description = _('others')
 
@@ -92,7 +92,7 @@ class Concert (models.Model):
         return ' :: '.join((self.default_city, self.default_start_date, ))
 
     def save (self):
-        from lieder.apps.misc import misc
+        from misc import misc
         misc.parse_markup(self)
         super(Concert, self).save()
 

@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from lieder.apps.misc import misc
-from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
-from lieder.apps.misc import mlang
+from misc import misc
+from misc.mlang import CharTranslation, TextTranslation, CHOICES
+from misc import mlang
 
 STATUS_CHOICES = (
     ('drf', _('draft')),
@@ -17,7 +17,7 @@ class Section (models.Model):
     default_secname = models.CharField (_('name'), maxlength=200, )
 
     def secname(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'secname')
     secname.short_description = _('name')
     
@@ -82,7 +82,7 @@ class Article (models.Model):
     default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
     
@@ -93,7 +93,7 @@ class Article (models.Model):
         )
 
     def intro(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'intro')
     intro.short_description = _('intro')
 
@@ -104,7 +104,7 @@ class Article (models.Model):
         )
 
     def body(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'body')
     body.short_description = _('body')
 
@@ -153,7 +153,7 @@ class Article (models.Model):
         return self.default_name
     
     def save (self):
-        from lieder.apps.misc import misc
+        from misc import misc
         misc.parse_markup (self)
         super(Article, self).save()
 

@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 #import re
-from lieder.apps.misc import misc
+from misc import misc
 
 CHOICES = []
 LANGUAGES_DICT = dict(settings.LANGUAGES)
@@ -51,7 +51,7 @@ class TextTranslation(models.Model):
         return '[%s] %s' % (self.language, self.text_markup)
 
     def save (self):
-        from lieder.apps.misc import misc
+        from misc import misc
         misc.parse_markup (self)
         super (TextTranslation, self).save()
 

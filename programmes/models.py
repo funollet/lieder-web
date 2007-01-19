@@ -1,15 +1,15 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from lieder.apps.misc import misc
-from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
-from lieder.apps.misc import mlang
+from misc import misc
+from misc.mlang import CharTranslation, TextTranslation, CHOICES
+from misc import mlang
 
 
 class Programme (models.Model):
     default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
 
@@ -20,7 +20,7 @@ class Programme (models.Model):
         )
 
     def intro(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'intro')
     intro.short_description = _('introduction')
 
@@ -31,7 +31,7 @@ class Programme (models.Model):
         )
 
     def first_part(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'first_part')
     first_part.short_description = _('first part')
 
@@ -42,7 +42,7 @@ class Programme (models.Model):
         )
 
     def second_part(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'second_part')
     second_part.short_description = _('second part')
 
@@ -53,7 +53,7 @@ class Programme (models.Model):
         )
 
     def footer(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'footer')
     footer.short_description = _('footer')
 
@@ -67,7 +67,7 @@ class Programme (models.Model):
 
 
     def save (self):
-        from lieder.apps.misc import misc
+        from misc import misc
         misc.parse_markup (self)
         super(Programme, self).save()
         

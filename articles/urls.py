@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from lieder.apps.articles.models import Article, Section
+from articles.models import Article, Section
 
 art_dict = {'queryset': Article.objects.all(), 'slug_field': 'slug'}
 section_dict = {'queryset': Section.objects.all(), 'slug_field': 'slug'}
@@ -10,7 +10,7 @@ section_dict = {'queryset': Section.objects.all(), 'slug_field': 'slug'}
 #
 # Not using object_id on urls: just 'slug'; k.i.s.s.
 #
-urlpatterns = patterns('lieder.apps.articles.views',
+urlpatterns = patterns('articles.views',
     #(r'^$', 'limited_object_list', section_dict, ),
     (r'^$', 'limited_object_detail', 
         dict(art_dict, slug='inici', template_name='articles/inici_detail.html') ),

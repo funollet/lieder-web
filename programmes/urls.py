@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from lieder.apps.programmes.models import Programme
+from programmes.models import Programme
 
 info_dict = { 'queryset': Programme.objects.all() }
 

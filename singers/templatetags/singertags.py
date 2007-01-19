@@ -1,5 +1,5 @@
 from django import template
-from lieder.apps.singers.models import Singer, VOICE_CHOICES
+from singers.models import Singer, VOICE_CHOICES
 
 class SingersNode (template.Node):
     def __init__ (self, var_name):

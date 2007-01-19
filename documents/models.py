@@ -1,8 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from lieder.apps.misc import misc
-from lieder.apps.misc.mlang import CharTranslation, TextTranslation, CHOICES
-from lieder.apps.misc import mlang
+from misc import misc
+from misc.mlang import CharTranslation, TextTranslation, CHOICES
+from misc import mlang
 
 class DocumentCategory (models.Model):
 #     name = models.CharField (_('name'),
@@ -17,7 +17,7 @@ class DocumentCategory (models.Model):
     default_catname = models.CharField (_('name'), maxlength=200, )
 
     def catname(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'catname')
     catname.short_description = _('name')
     
@@ -28,7 +28,7 @@ class DocumentCategory (models.Model):
         )
 
     def catdescription(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'catdescription')
     catdescription.short_description = _('description')
 
@@ -54,7 +54,7 @@ class DocumentCategory (models.Model):
         return self.default_catname
 
     def save (self):
-        from lieder.apps.misc import misc
+        from misc import misc
         misc.parse_markup (self)
         super(DocumentCategory, self).save()
 
@@ -92,7 +92,7 @@ class Document (models.Model):
     default_name = models.CharField (_('name'), maxlength=200, )
 
     def name(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'name')
     name.short_description = _('name')
     
@@ -103,7 +103,7 @@ class Document (models.Model):
         )
 
     def description(self):
-        from lieder.apps.misc import mlang
+        from misc import mlang
         return mlang.get_text(self, 'description')
     description.short_description = _('description')
 
@@ -142,7 +142,7 @@ class Document (models.Model):
         return self.default_name
     
     def save (self):
-        from lieder.apps.misc import misc
+        from misc import misc
         misc.parse_markup (self)
         super(Document, self).save()
 

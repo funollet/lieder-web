@@ -6,15 +6,15 @@ urlpatterns = patterns('',
     (r'^i18n/', include('django.conf.urls.i18n')),
     (r'^r/', include('django.conf.urls.shortcut')),
     #
-    #(r'^articles/', include('lieder.apps.articles.urls')),
-    (r'^concerts/', include('lieder.apps.concerts.urls')),
-    (r'^documents/', include('lieder.apps.documents.urls')),
-    (r'^links/', include('lieder.apps.links.urls')),
-    (r'^programmes/', include('lieder.apps.programmes.urls')),
-    (r'^singers/', include('lieder.apps.singers.urls')),
-    #(r'^stockphoto/', include('lieder.apps.stockphoto.urls')),
+    #(r'^articles/', include('articles.urls')),
+    (r'^concerts/', include('concerts.urls')),
+    (r'^documents/', include('documents.urls')),
+    (r'^links/', include('links.urls')),
+    (r'^programmes/', include('programmes.urls')),
+    (r'^singers/', include('singers.urls')),
+    #(r'^stockphoto/', include('stockphoto.urls')),
     #
-    (r'^', include('lieder.apps.articles.urls')),
+    (r'^', include('articles.urls')),
 )
 
 if settings.LOCAL_DEV:
