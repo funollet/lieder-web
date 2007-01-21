@@ -102,6 +102,7 @@ class Concert (models.Model):
     class Meta:
         verbose_name = _('concert')
         verbose_name_plural = _('concerts')
+        ordering = ['pub_date']
     class Admin:
         list_display = ('default_city', 'default_auditorium', 'default_start_date',
                         'default_cycle', 'default_programme')
